@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#19132D">
+<title>Главная · ОМА Академия</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="top"><div class="container"><span>Выбрано: <b>Минск</b></span><span>Контакт-центр: <b>536-45-00</b></span><a class="r" href="#">Адреса магазинов</a><a href="#">Покупателям</a><a href="#">Компания ОМА</a></div></div>
+<div class="mid"><div class="container">
+  <a class="logo" href="index.html" aria-label="ОМА Академия"><img src="logo.png" alt="ОМА"><span>Академия</span></a>
+  <form class="search" role="search"><input id="q" type="search" placeholder="Найти курс" aria-label="Найти курс"><button type="submit">Найти</button></form>
+  <div class="acc"><a href="cabinet.html"><b>Вход или</b>Регистрация</a><a href="cabinet.html"><b>Мои курсы</b>Личный кабинет</a></div>
+</div></div>
+<nav class="bar" aria-label="Разделы"><div class="container">
+<a class="catalog" href="courses.html">Все курсы</a>
+<a class="m red" href="courses.html?g=teen">Школьникам</a>
+<a class="m blue" href="courses.html?g=student">Студентам</a>
+<a class="m purple" href="courses.html?g=pro">Переподготовка</a>
+<a class="m green" href="courses.html?g=team">Сотрудникам ОМА</a>
+<a class="m dorange" href="cabinet.html">Личный кабинет</a></div></nav>
+
+
+<main class="container">
+<div class="crumbs"><a href="index.html">Главная</a> / <span>Академия</span></div>
+
+ <div class="hero"><h1>Научитесь ремонтировать, строить и зарабатывать на этом</h1>
+ <p>Практические курсы в магазинах ОМА и онлайн: от первого шуруповёрта в школе до повышения квалификации прорабов. Занятия ведут действующие мастера.</p>
+ <div class="tiles">
+  <a class="tile" href="courses.html?g=teen"><b>Школьникам</b><span>12–17 лет, бесплатно</span></a>
+  <a class="tile" href="courses.html?g=student"><b>Студентам</b><span>Навыки и стажировка</span></a>
+  <a class="tile" href="courses.html?g=pro"><b>Переподготовка</b><span>Новая профессия за 2–4 месяца</span></a>
+  <a class="tile" href="courses.html?g=team"><b>Сотрудникам ОМА</b><span>Маршрут по должности</span></a>
+ </div></div>
+ <div class="sec"><h2 class="s">Популярные курсы</h2><div class="grid" id="popular"></div></div>
+ <div class="sec"><h2 class="s">Как проходит обучение</h2><div class="grid">
+  <div class="card"><h3>1. Выберите курс</h3><p>Фильтр по возрасту, формату и стоимости.</p></div>
+  <div class="card"><h3>2. Смотрите уроки</h3><p>Видео до 10 минут и тест после каждого.</p></div>
+  <div class="card"><h3>3. Отработайте руками</h3><p>Практикум на стенде в ближайшем ОМА.</p></div>
+  <div class="card"><h3>4. Получите сертификат</h3><p>Для резюме и портфолио.</p></div></div></div>
+ <div class="sec" id="apply"><h2 class="s">Запишитесь на ближайший набор</h2><p class="lead">Школьникам до 14 лет нужна заявка от родителя.</p>
+  <form class="box" id="f" style="max-width:460px;padding:20px">
+   <label>Имя<input required autocomplete="given-name"></label>
+   <label>Телефон или Telegram<input required autocomplete="tel"></label>
+   <label>Направление<select><option>Школьникам</option><option>Студентам</option><option>Переподготовка</option><option>Сотрудникам ОМА</option></select></label>
+   <button class="btn" type="submit">Записаться</button><p class="note" id="note" role="status"></p></form></div>
+
+</main>
+<div class="promo"><div class="container">
+ <a href="cabinet.html"><b>Личный кабинет</b><span>Прогресс, расписание, сертификаты</span></a>
+ <a href="courses.html"><b>Каталог курсов</b><span>Для школьников, студентов и специалистов</span></a>
+ <a href="index.html#apply"><b>Запись на курсы</b><span>Оставьте заявку на ближайший набор</span></a></div></div>
+<footer><div class="container">
+ <div><h3>Академия</h3><a href="index.html">Главная</a><a href="courses.html">Курсы</a><a href="cabinet.html">Личный кабинет</a></div>
+ <div><h3>Компания ОМА</h3><a href="#">О компании</a><a href="#">Работа в ОМА</a><a href="#">Контакты</a></div>
+ <div><p>© 1992–2026 ООО «ОМА». Учебный прототип: курсы, сроки и цены условные.</p><p>Контакт-центр: 536-45-00</p></div></div></footer>
+
+
+<script src="config.js"></script>
+<script src="data.js"></script>
+<script src="auth.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
