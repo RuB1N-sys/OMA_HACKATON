@@ -1,13 +1,97 @@
+# ==============================================================================
+# OMA ACADEMY — ПОЛНАЯ КОМПОНОВКА СЕРВИСОВ (DOCKER COMPOSE)
+# 1. PostgreSQL 16 (СУБД с автоматическим применением схемы и сидов)
+# 2. Spring Boot 3 Backend (Java 21 REST API)
+# 3. Nginx Frontend (SPA + Reverse Proxy)
+# ==============================================================================
+
 services:
+
+  # ----------------------------------------------------------------------------
+  # 1. База данных PostgreSQL 16
+  # ----------------------------------------------------------------------------
   db:
-    image: postgres:16
+    image: postgres:16-alpine
+    container_name: oma_db
+    restart: unless-stopped
     environment:
-      POSTGRES_DB: oma_academy
-      POSTGRES_USER: oma
-      POSTGRES_PASSWORD: oma_dev_password
-    ports: ["5432:5432"]
+      POSTGRES_DB: ${POSTGRES_DB:-oma_academy}
+      POSTGRES_USER: ${POSTGRES_USER:-oma}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-oma_dev_password}
+    ports:
+      - "${DB_PORT:-5432}:5432"
     volumes:
-      - ./db/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
       - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-oma} -d ${POSTGRES_DB:-oma_academy}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - oma_network
+
+  # ----------------------------------------------------------------------------
+  # 2. Бэкенд Java Spring Boot 3 + Java 21
+  # ----------------------------------------------------------------------------
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: oma_backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/${POSTGRES_DB:-oma_academy}
+      DB_USER: ${POSTGRES_USER:-oma}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-oma_dev_password}
+      JWT_SECRET: ${JWT_SECRET:-oma-academy-super-secure-jwt-secret-key-32chars}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost,http://localhost:80,http://localhost:3000,http://localhost:8000,http://localhost:5500,http://127.0.0.1}
+      DDL_AUTO: update
+    ports:
+      - "${BACKEND_PORT:-8080}:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:8080/api/projects || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - oma_network
+
+  # ----------------------------------------------------------------------------
+  # 3. Фронтенд (Nginx: SPA + Reverse Proxy для /api/)
+  # ----------------------------------------------------------------------------
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: oma_frontend
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "${FRONTEND_PORT:-80}:80"
+      - "3000:80"
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost/healthz || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - oma_network
+
+# ------------------------------------------------------------------------------
+# Постоянные тома и сеть
+# ------------------------------------------------------------------------------
 volumes:
   pgdata:
+    name: oma_pgdata
+
+networks:
+  oma_network:
+    name: oma_network
+    driver: bridge
