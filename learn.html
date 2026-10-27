@@ -3,28 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Интерактивный тренажер курса — OMA ACADEMY</title>
+  <title>Интерактивный тренажер курса — Практикум ОМА</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body style="background:#ffffff">
 
   <!-- Шапка тренажера в стиле Яндекс Практикум -->
-  <header class="site-header" style="border-bottom:1px solid #1f2937">
-    <div class="container" style="max-width:100%;padding:0 20px">
-      <div class="header-inner" style="height:60px">
-        <div style="display:flex;align-items:center;gap:16px">
-          <a href="courses.html" class="brand-logo">
-            <span class="brand-badge">OMA</span>
-            <span style="font-size:15px;color:#94a3b8;font-weight:600">← К каталогу курсов</span>
+  <header class="site-header" style="border-bottom:1px solid #e5e7eb">
+    <div class="container" style="max-width:100%;padding:0 24px">
+      <div class="header-inner" style="height:64px">
+        <div style="display:flex;align-items:center;gap:18px">
+          <a class="logo-practicum" href="courses.html">
+            <span class="logo-badge-circle">О</span>
+            <span class="logo-asterisk">✱</span>
+            <span class="logo-brand-text">Практикум <span>ОМА</span></span>
           </a>
-          <span style="color:#475569">|</span>
-          <span id="header-course-name" style="font-weight:600;font-size:14px;color:#ffffff;max-width:400px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">
+          <span style="color:#d1d5db">|</span>
+          <a href="courses.html" style="font-size:13px;color:var(--text-muted);font-weight:600">← К каталогу</a>
+          <span style="color:#d1d5db">|</span>
+          <span id="header-course-name" style="font-weight:700;font-size:14px;color:var(--text-main);max-width:380px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">
             Загрузка программы...
           </span>
         </div>
 
-        <div class="header-actions">
-          <button id="btn-quick-bom" class="btn" style="background:var(--oma-orange);color:#fff;padding:8px 16px;font-size:13px;font-weight:600;border-radius:20px;display:flex;align-items:center;gap:6px">
+        <div class="header-actions" style="display:flex;align-items:center;gap:12px">
+          <button id="btn-quick-bom" class="btn-primary" style="padding:8px 16px;font-size:13px;border-radius:var(--radius-pill)">
             🛒 Смета материалов (BOM)
           </button>
           <div id="header-points-slot"></div>
@@ -38,18 +41,18 @@
   <div class="learn-container">
     <!-- Левый сайдбар: роадмап шагов курса -->
     <aside class="learn-sidebar">
-      <div class="course-progress-header">
-        <div class="progress-course-title" id="sidebar-course-title">...</div>
+      <div style="margin-bottom:24px">
+        <div style="font-size:15px;font-weight:800;color:var(--text-main);margin-bottom:8px" id="sidebar-course-title">...</div>
         <div class="progress-bar-container">
           <div class="progress-bar-fill" id="sidebar-progress-bar" style="width:0%"></div>
         </div>
-        <div class="progress-stats-text">
+        <div style="font-size:12px;color:var(--text-muted);font-weight:600;display:flex;justify-content:space-between">
           <span id="sidebar-progress-percent">0% пройдено</span>
           <span id="sidebar-steps-count">0 из 0 уроков</span>
         </div>
       </div>
 
-      <div style="font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:12px">
+      <div style="font-size:11px;font-weight:800;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:12px">
         План мастер-класса:
       </div>
 
@@ -58,14 +61,14 @@
       </ul>
 
       <!-- Виджет 1-клик покупки материалов всего курса -->
-      <div class="sidebar-bom-box">
-        <div class="bom-box-title">
+      <div style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-md);padding:18px;margin-top:auto;box-shadow:var(--shadow-sm)">
+        <div style="font-size:14px;font-weight:700;color:var(--text-main);margin-bottom:6px;display:flex;align-items:center;gap:6px">
           <span>🛒</span> Купить комплект в 1 клик
         </div>
-        <p class="bom-box-desc">
+        <p style="font-size:12px;color:var(--text-muted);margin-bottom:14px;line-height:1.4">
           Все необходимые мебельные щиты, крепеж, грунтовки и клеи из гипермаркета ОМА.
         </p>
-        <button id="sidebar-bom-btn" class="btn-sidebar-bom">
+        <button id="sidebar-bom-btn" class="btn-primary" style="width:100%;justify-content:center;padding:10px;font-size:13px">
           Открыть смету и расчет
         </button>
       </div>
@@ -74,13 +77,13 @@
     <!-- Правая рабочая область (Practicum Lesson Workspace) -->
     <main class="learn-workspace">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <span class="lesson-step-badge" id="lesson-step-badge">ШАГ 1 ИЗ 3</span>
+        <span style="font-size:12px;font-weight:800;color:var(--oma-orange);text-transform:uppercase;letter-spacing:0.8px" id="lesson-step-badge">ШАГ 1 ИЗ 3</span>
         <span id="lesson-points-reward" style="background:#fffbeb;color:#b45309;font-weight:700;font-size:12px;padding:4px 10px;border-radius:12px;border:1px solid #fde68a">
           +100 баллов на карту ОМА
         </span>
       </div>
 
-      <h1 class="lesson-step-title" id="lesson-step-title">Загрузка урока...</h1>
+      <h1 style="font-size:28px;font-weight:800;color:var(--text-main);margin-bottom:24px" id="lesson-step-title">Загрузка урока...</h1>
 
       <!-- Видеоплеер -->
       <div class="video-wrapper">
@@ -101,8 +104,8 @@
       </div>
 
       <!-- Чек-лист материалов для этого шага -->
-      <div class="materials-checklist">
-        <div class="section-subhead">
+      <div style="margin-bottom:36px">
+        <div style="font-size:18px;font-weight:700;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center">
           <span>📦 Материалы для этого шага:</span>
           <span style="font-size:12px;color:var(--text-muted);font-weight:normal">Ассортимент ОМА</span>
         </div>
@@ -113,7 +116,7 @@
 
       <!-- Инструменты для шага -->
       <div style="margin-bottom:40px">
-        <div class="section-subhead">
+        <div style="font-size:18px;font-weight:700;margin-bottom:14px">
           <span>🔧 Необходимый инструмент:</span>
         </div>
         <div id="step-tools-container" style="display:flex;gap:12px;flex-wrap:wrap">
@@ -130,12 +133,12 @@
       </div>
 
       <!-- Нижняя панель действий -->
-      <div class="learn-action-bar">
-        <button id="btn-prev-step" class="btn" style="background:#f1f5f9;color:var(--text-secondary);padding:12px 20px;border:1px solid var(--border);font-weight:600">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--border)">
+        <button id="btn-prev-step" class="btn" style="background:#f1f5f9;color:var(--text-secondary);padding:12px 20px;border:1px solid var(--border);border-radius:var(--radius-sm);font-weight:600">
           ← Предыдущий шаг
         </button>
 
-        <button id="btn-next-step" class="btn-complete-step">
+        <button id="btn-next-step" class="btn-primary" style="padding:14px 28px;font-size:15px">
           <span>Шаг выполнен! Продолжить</span>
           <span>→</span>
         </button>
@@ -147,7 +150,7 @@
   <div id="cert-congrats-modal" class="modal-overlay">
     <div class="modal-card" style="text-align:center;max-width:520px">
       <div style="font-size:56px;margin-bottom:12px">🎓</div>
-      <span class="brand-badge" style="margin-bottom:10px;display:inline-block">КУРС УСПЕШНО ЗАВЕРШЕН</span>
+      <div class="hero-discount-pill" style="position:static;display:inline-block;margin-bottom:10px">КУРС УСПЕШНО ЗАВЕРШЕН</div>
       <h2 style="font-size:24px;font-weight:800;margin-bottom:10px">Поздравляем с прохождением программы!</h2>
       <p style="color:var(--text-secondary);font-size:14px;line-height:1.6;margin-bottom:20px">
         Вы освоили все практические этапы. Вам начислено <b id="congrats-points">+100 баллов</b> на карту ОМА и выпущен официальный сертификат специалиста.
@@ -165,7 +168,7 @@
         <button id="btn-download-pdf-cert" class="btn-primary" style="padding:14px 28px">
           📄 Скачать официальный PDF
         </button>
-        <button class="btn" onclick="location.href='cabinet.html'" style="background:#f1f5f9;color:var(--text-main);padding:14px 20px;font-weight:600">
+        <button class="btn" onclick="location.href='cabinet.html'" style="background:#f1f5f9;color:var(--text-main);padding:14px 20px;border-radius:var(--radius-sm);font-weight:600">
           В личный кабинет
         </button>
       </div>
@@ -183,14 +186,12 @@
 
       var project = await window.OmaApp.data.getProject(projectId);
       if (!project || !project.steps || !project.steps.length) {
-        // Если у проекта нет шагов, берем демо шаги из проекта 1
         var fallbackProj = await window.OmaApp.data.getProject(1);
         project.steps = fallbackProj.steps;
       }
 
       var steps = project.steps;
 
-      // Элементы UI
       var headerCourseName = document.getElementById('header-course-name');
       var sidebarCourseTitle = document.getElementById('sidebar-course-title');
       var stepsNavList = document.getElementById('steps-nav-list');
@@ -220,13 +221,11 @@
         var step = steps[index];
         checkConfirm.checked = false;
 
-        // Обновляем прогресс
         var progressPercent = Math.round(((index) / steps.length) * 100);
         sidebarProgressBar.style.width = progressPercent + '%';
         sidebarProgressPercent.textContent = progressPercent + '% пройдено';
         sidebarStepsCount.textContent = (index + 1) + ' из ' + steps.length + ' шагов';
 
-        // Обновляем сайдбар шагов
         stepsNavList.innerHTML = '';
         steps.forEach(function (s, i) {
           var li = document.createElement('li');
@@ -234,7 +233,10 @@
           var isActive = i === index;
           li.className = 'step-nav-item' + (isCompleted ? ' completed' : '') + (isActive ? ' active' : '');
           li.innerHTML =
-            '<div class="step-status-icon">' + (isCompleted ? '✓' : (i + 1)) + '</div>' +
+            '<div style="width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;' +
+              (isCompleted ? 'background:#e6f7ee;color:#00a651' : (isActive ? 'background:var(--oma-orange);color:#fff' : 'background:#e5e7eb;color:#6b7280')) + '">' +
+              (isCompleted ? '✓' : (i + 1)) +
+            '</div>' +
             '<div style="line-height:1.3">' +
               '<div>' + s.title + '</div>' +
             '</div>';
@@ -242,31 +244,28 @@
           stepsNavList.appendChild(li);
         });
 
-        // Заполняем правую панель
         lessonStepBadge.textContent = 'ШАГ ' + (index + 1) + ' ИЗ ' + steps.length;
         lessonStepTitle.textContent = step.title;
         lessonVideoIframe.src = step.videoUrl || 'https://www.youtube.com/embed/dQw4w9WgXcQ';
         lessonDescription.innerHTML = '<p>' + step.description + '</p>';
 
-        // Материалы шага
         if (step.materials && step.materials.length) {
           var mHtml = '<table class="materials-table"><thead><tr><th>Материал ОМА</th><th>Артикул</th><th>Кол-во</th><th>Розница</th><th>Купить</th></tr></thead><tbody>';
           step.materials.forEach(function (m) {
             mHtml += '<tr>' +
               '<td><b>' + m.name + '</b></td>' +
-              '<td><span class="mat-sku">' + (m.sku || 'OMA-BY') + '</span></td>' +
+              '<td><span style="font-family:\'JetBrains Mono\',monospace;font-size:12px;color:var(--text-muted)">' + (m.sku || 'OMA-BY') + '</span></td>' +
               '<td>' + m.quantity + ' ' + (m.unit || 'шт') + '</td>' +
               '<td><b>' + m.priceRetail + ' BYN</b></td>' +
-              '<td><a class="mat-buy-link" href="' + (m.omaProductUrl || 'https://oma.by') + '" target="_blank">На oma.by ↗</a></td>' +
+              '<td><a style="color:var(--oma-orange);font-weight:600;font-size:13px" href="' + (m.omaProductUrl || 'https://oma.by') + '" target="_blank">На oma.by ↗</a></td>' +
             '</tr>';
           });
           mHtml += '</tbody></table>';
           stepMaterialsContainer.innerHTML = mHtml;
         } else {
-          stepMaterialsContainer.innerHTML = '<p style="color:var(--text-muted);font-size:13px">Для данного подготовительного шага отдельные материалы не требуются.</p>';
+          stepMaterialsContainer.innerHTML = '<p style="color:var(--text-muted);font-size:13px">Для данного шага отдельные расходные материалы не требуются.</p>';
         }
 
-        // Инструменты шага
         if (step.tools && step.tools.length) {
           stepToolsContainer.innerHTML = '';
           step.tools.forEach(function (t) {
@@ -279,7 +278,6 @@
           stepToolsContainer.innerHTML = '<span style="color:var(--text-muted);font-size:13px">Стандартный ручной инструмент</span>';
         }
 
-        // Навигационные кнопки
         btnPrev.disabled = index === 0;
         btnPrev.style.opacity = index === 0 ? '0.5' : '1';
 
@@ -301,7 +299,6 @@
         if (currentStepIndex < steps.length - 1) {
           renderStep(currentStepIndex + 1);
         } else {
-          // Финиш курса: открываем поздравительную модалку
           sidebarProgressBar.style.width = '100%';
           sidebarProgressPercent.textContent = '100% пройдено';
 
@@ -313,7 +310,6 @@
           modal.classList.add('open');
 
           document.getElementById('btn-download-pdf-cert').onclick = function () {
-            // Скачивание сгенерированного PDF
             var link = document.createElement('a');
             link.href = (window.OMA_CONFIG.API_URL || 'http://localhost:8080') + '/api/certificates/1/pdf';
             link.download = 'oma-certificate.pdf';

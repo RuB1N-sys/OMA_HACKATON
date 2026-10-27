@@ -3,44 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Личный кабинет — OMA ACADEMY</title>
+  <title>Личный кабинет — Практикум ОМА</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Верхняя сервисная полоса ОМА -->
-  <div class="oma-topbar">
-    <div class="container">
-      <div class="oma-topbar-left">
-        <span>Город: <b>Минск</b></span>
-        <span>Контакт-центр: <b>536-45-00</b></span>
-      </div>
-      <div class="oma-topbar-right">
-        <a href="https://oma.by" target="_blank">Гипермаркет oma.by ↗</a>
-        <a href="courses.html">Каталог курсов</a>
-      </div>
-    </div>
-  </div>
 
   <!-- Главная шапка в стиле Яндекс Практикум -->
   <header class="site-header">
     <div class="container">
       <div class="header-inner">
-        <a class="brand-logo" href="index.html">
-          <img src="logo.png" alt="ОМА" style="height:38px;width:auto;border-radius:4px">
-          <span class="brand-badge">АКАДЕМИЯ</span>
-          <span class="brand-sub">Кабинет</span>
+        <a class="logo-practicum" href="index.html">
+          <span class="logo-badge-circle">О</span>
+          <span class="logo-asterisk">✱</span>
+          <span class="logo-brand-text">Практикум <span>ОМА</span></span>
         </a>
 
-        <nav class="main-nav">
-          <a class="nav-link" href="index.html">Главная</a>
-          <a class="nav-link" href="courses.html">Каталог курсов</a>
-          <a class="nav-link" href="learn.html?id=1">Тренажер (Практика)</a>
-          <a class="nav-link" href="gallery.html">Галерея До/После</a>
-          <a class="nav-link active" href="cabinet.html">Личный кабинет</a>
+        <nav class="header-nav">
+          <a class="header-nav-link" href="gallery.html">Блог & Галерея</a>
+          <a class="header-nav-link" href="cabinet.html?tab=b2b">Компаниям (B2B)</a>
+          <a class="header-nav-link" href="index.html#expertise">Об Академии ▾</a>
+          <a class="header-nav-link" href="courses.html">Все курсы ▾</a>
+          <a class="btn-header-catalog" href="courses.html">В каталог</a>
         </nav>
 
-        <div class="header-actions">
+        <div class="header-user-slot">
           <div id="header-points-slot"></div>
           <div id="header-auth-slot"></div>
         </div>
@@ -53,11 +39,11 @@
       <!-- Баннер профиля пользователя -->
       <div style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;box-shadow:var(--shadow-sm)">
         <div style="display:flex;align-items:center;gap:18px">
-          <div class="avatar-circle" style="width:64px;height:64px;font-size:24px" id="cab-avatar">U</div>
+          <div class="logo-badge-circle" style="width:56px;height:56px;font-size:22px" id="cab-avatar">О</div>
           <div>
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
               <h1 style="font-size:22px;font-weight:800;margin:0" id="cab-user-name">Пользователь ОМА</h1>
-              <span class="brand-badge" id="cab-user-badge">Студент</span>
+              <span class="hero-discount-pill" style="position:static" id="cab-user-badge">Студент</span>
             </div>
             <div style="font-size:14px;color:var(--text-muted)" id="cab-user-email">user@oma.by</div>
           </div>
@@ -73,35 +59,35 @@
       </div>
 
       <!-- Вкладки личного кабинета -->
-      <div class="cabinet-tabs-bar">
-        <div class="cabinet-tabs">
-          <button class="tab-btn active" data-tab="learning">
+      <div style="background:#ffffff;border-bottom:1px solid var(--border);margin-bottom:32px">
+        <div style="display:flex;gap:8px;overflow-x:auto">
+          <button class="tab-btn active" data-tab="learning" style="padding:14px 20px;font-weight:700;cursor:pointer;border:none;background:none;border-bottom:3px solid var(--oma-orange);color:var(--oma-orange)">
             <span>📚</span> Мое обучение
           </button>
-          <button class="tab-btn" data-tab="points">
+          <button class="tab-btn" data-tab="points" style="padding:14px 20px;font-weight:600;cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;color:var(--text-muted)">
             <span>⭐</span> Бонусы и карта ОМА
           </button>
-          <button class="tab-btn" data-tab="certificates">
+          <button class="tab-btn" data-tab="certificates" style="padding:14px 20px;font-weight:600;cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;color:var(--text-muted)">
             <span>🎓</span> Сертификаты
           </button>
-          <button class="tab-btn" data-tab="achievements">
+          <button class="tab-btn" data-tab="achievements" style="padding:14px 20px;font-weight:600;cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;color:var(--text-muted)">
             <span>🏆</span> Достижения
           </button>
-          <button class="tab-btn" data-tab="b2b" id="tab-btn-b2b">
+          <button class="tab-btn" data-tab="b2b" id="tab-btn-b2b" style="padding:14px 20px;font-weight:600;cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;color:var(--text-muted)">
             <span>🏢</span> Кабинет Бригадира (B2B)
           </button>
         </div>
       </div>
 
       <!-- ВКЛАДКА 1: МОЕ ОБУЧЕНИЕ -->
-      <div id="tab-learning" class="tab-content active">
+      <div id="tab-learning" class="tab-content active" style="display:block">
         <h2 style="font-size:20px;font-weight:800;margin-bottom:16px">Текущие программы в процессе</h2>
         <div style="display:grid;grid-template-columns:1fr;gap:18px;margin-bottom:36px">
           <!-- Активная карточка 1 -->
-          <div style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
+          <div style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;box-shadow:var(--shadow-sm)">
             <div style="flex:1;min-width:280px">
               <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-                <span class="course-cover-badge" style="position:static;background:var(--oma-orange-soft);color:var(--oma-orange)">B2C Мастер-класс</span>
+                <span class="hero-discount-pill" style="position:static;font-size:11px">B2C Мастер-класс</span>
                 <span style="font-size:13px;color:var(--text-muted)">Дедлайн: 15 ноября</span>
               </div>
               <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Стильная настенная полка в стиле Лофт своими руками</h3>
@@ -117,10 +103,10 @@
           </div>
 
           <!-- Активная карточка 2 -->
-          <div style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
+          <div style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;box-shadow:var(--shadow-sm)">
             <div style="flex:1;min-width:280px">
               <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-                <span class="course-cover-badge" style="position:static;background:var(--oma-purple-soft);color:var(--oma-purple)">B2B Квалификация Ceresit</span>
+                <span class="hero-discount-pill" style="position:static;font-size:11px;background:#2563eb">B2B Квалификация Ceresit</span>
                 <span style="font-size:13px;color:var(--text-muted)">Назначено бригадиром</span>
               </div>
               <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Монтаж крупноформатного керамогранита с Ceresit & Litokol</h3>
@@ -138,39 +124,31 @@
       </div>
 
       <!-- ВКЛАДКА 2: БОНУСЫ И КАРТА ОМА -->
-      <div id="tab-points" class="tab-content">
-        <div class="loyalty-banner">
+      <div id="tab-points" class="tab-content" style="display:none">
+        <div class="promo-green-banner" style="background:#111827;grid-template-columns:1fr 1fr;margin-bottom:32px">
           <div>
-            <div class="loyalty-balance-title">Баланс бонусных баллов ОМА</div>
-            <div class="loyalty-balance-value" id="cab-total-points">450 ⭐</div>
+            <div style="font-size:13px;font-weight:600;color:#94a3b8;text-transform:uppercase;margin-bottom:8px">Баланс бонусных баллов ОМА</div>
+            <div style="font-size:46px;font-weight:900;color:#fbbf24;margin-bottom:10px" id="cab-total-points">450 ⭐</div>
             <p style="font-size:14px;color:#cbd5e1;line-height:1.5;margin-bottom:18px">
               1 балл = 1 рубль скидки при оплате любых покупок в интернет-магазине oma.by и гипермаркетах сети.
             </p>
-            <button class="btn-primary" style="padding:10px 20px" onclick="document.getElementById('spend-points-box').scrollIntoView({behavior:'smooth'})">
-              Списать баллы на покупку
-            </button>
           </div>
 
-          <!-- Привязка дисконтной карты ОМА -->
-          <div class="loyalty-card-box">
+          <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:20px">
             <div style="font-weight:700;font-size:16px;margin-bottom:8px">Синхронизация карты покупателя ОМА</div>
             <p style="font-size:13px;color:#cbd5e1;margin-bottom:14px">
-              Привяжите вашу дисконтную карту, чтобы бонусы с обучающей платформы синхронизировались с чеками в гипермаркете.
+              Привяжите дисконтную карту для синхронизации бонусов с покупками в ОМА.
             </p>
             <div style="display:flex;gap:8px">
               <input type="text" id="cab-card-input" placeholder="7789-4412-9901" style="flex:1;padding:10px 14px;border:none;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:14px">
-              <button id="cab-sync-card-btn" class="btn" style="background:var(--oma-orange);color:#fff;font-weight:700;padding:10px 16px;border-radius:8px">
-                Привязать
-              </button>
+              <button id="cab-sync-card-btn" class="btn-primary" style="padding:10px 18px">Привязать</button>
             </div>
-            <div id="cab-card-status" style="font-size:12px;color:#86efac;margin-top:8px">✓ Дисконтная карта ОМА привязана и активна</div>
+            <div id="cab-card-status" style="font-size:12px;color:#86efac;margin-top:8px">✓ Дисконтная карта ОМА привязана и активна (+50 баллов)</div>
           </div>
         </div>
 
-        <!-- Списание бонусов -->
-        <div id="spend-points-box" style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;margin-bottom:32px">
-          <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Монетизация баллов: списание на скидку в ОМА</h3>
-          <p style="font-size:14px;color:var(--text-secondary);margin-bottom:18px">Сформируйте промокод на скидку для заказа на oma.by или оплаты мастер-класса:</p>
+        <div style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;margin-bottom:32px">
+          <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Монетизация баллов: списание на скидку в гипермаркетах ОМА</h3>
           <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
             <input type="number" id="inp-spend-amount" placeholder="Кол-во баллов (например 50)" style="width:240px;padding:10px 14px;border:1px solid var(--border);border-radius:8px">
             <button id="btn-spend-submit" class="btn-primary" style="padding:10px 20px">Сформировать скидочный сертификат</button>
@@ -178,29 +156,27 @@
           </div>
         </div>
 
-        <!-- История начислений -->
         <h3 style="font-size:18px;font-weight:700;margin-bottom:14px">История операций с бонусами</h3>
         <table class="materials-table">
           <thead>
             <tr><th>Дата</th><th>Операция</th><th>Баллы</th><th>Статус</th></tr>
           </thead>
-          <tbody id="cab-tx-table">
-            <tr><td>26.10.2026</td><td>Завершение мастер-класса: Полка Лофт</td><td style="color:var(--oma-green);font-weight:700">+100</td><td>Зачислено</td></tr>
-            <tr><td>24.10.2026</td><td>Бонус за привязку дисконтной карты ОМА</td><td style="color:var(--oma-green);font-weight:700">+50</td><td>Зачислено</td></tr>
-            <tr><td>20.10.2026</td><td>Успешная сертификация по электромонтажу</td><td style="color:var(--oma-green);font-weight:700">+300</td><td>Зачислено</td></tr>
+          <tbody>
+            <tr><td>26.10.2026</td><td>Завершение мастер-класса: Полка Лофт</td><td style="color:var(--practicum-green);font-weight:700">+100</td><td>Зачислено</td></tr>
+            <tr><td>24.10.2026</td><td>Бонус за привязку дисконтной карты ОМА</td><td style="color:var(--practicum-green);font-weight:700">+50</td><td>Зачислено</td></tr>
+            <tr><td>20.10.2026</td><td>Успешная сертификация по электромонтажу</td><td style="color:var(--practicum-green);font-weight:700">+300</td><td>Зачислено</td></tr>
           </tbody>
         </table>
       </div>
 
       <!-- ВКЛАДКА 3: СЕРТИФИКАТЫ -->
-      <div id="tab-certificates" class="tab-content">
+      <div id="tab-certificates" class="tab-content" style="display:none">
         <h2 style="font-size:20px;font-weight:800;margin-bottom:16px">Мои официальные сертификаты ОМА</h2>
         <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(360px, 1fr));gap:24px">
-          <!-- Сертификат 1 -->
-          <div style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;box-shadow:var(--shadow-sm);border-top:4px solid var(--oma-green)">
+          <div style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;box-shadow:var(--shadow-sm);border-top:4px solid var(--practicum-green)">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-              <span style="font-size:12px;font-weight:700;color:var(--oma-green)">ОФИЦИАЛЬНЫЙ СЕРТИФИКАТ</span>
-              <span style="font-size:12px;color:var(--text-muted)">Выдан: 25.10.2026</span>
+              <span style="font-size:12px;font-weight:700;color:var(--practicum-green)">ОФИЦИАЛЬНЫЙ СЕРТИФИКАТ</span>
+              <span style="font-size:12px;color:var(--text-muted)">25.10.2026</span>
             </div>
             <h3 style="font-size:17px;font-weight:700;margin-bottom:8px">Монтаж крупноформатного керамогранита</h3>
             <div style="font-size:13px;color:var(--text-muted);margin-bottom:16px">
@@ -215,48 +191,38 @@
       </div>
 
       <!-- ВКЛАДКА 4: ДОСТИЖЕНИЯ -->
-      <div id="tab-achievements" class="tab-content">
+      <div id="tab-achievements" class="tab-content" style="display:none">
         <h2 style="font-size:20px;font-weight:800;margin-bottom:16px">Цифровые награды и достижения</h2>
-        <div class="achievements-grid" id="cab-achievements-container">
-          <!-- Генерируется из AppData -->
-        </div>
+        <div class="courses-grid" id="cab-achievements-container" style="grid-template-columns:repeat(auto-fill, minmax(220px, 1fr))"></div>
       </div>
 
       <!-- ВКЛАДКА 5: B2B КАБИНЕТ БРИГАДИРА -->
-      <div id="tab-b2b" class="tab-content">
-        <div class="b2b-panel">
-          <div class="b2b-header">
+      <div id="tab-b2b" class="tab-content" style="display:none">
+        <div style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-sm)">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:16px">
             <div>
-              <span class="brand-badge" style="margin-bottom:6px;display:inline-block">B2B УПРАВЛЕНИЕ</span>
+              <span class="hero-discount-pill" style="position:static;display:inline-block;margin-bottom:6px">B2B УПРАВЛЕНИЕ</span>
               <h2 style="font-size:22px;font-weight:800;margin:0">ООО «СтройМастер Минск»</h2>
               <div style="font-size:13px;color:var(--text-muted)">Бригадир: Дмитрий Ковалев • 4 сертифицированных мастера</div>
             </div>
-            <button id="btn-add-member" class="btn-primary" style="padding:10px 18px;font-size:13px">
+            <button class="btn-primary" style="padding:10px 18px;font-size:13px">
               + Добавить мастера в бригаду
             </button>
           </div>
 
-          <!-- Список сотрудников бригады -->
           <h3 style="font-size:16px;font-weight:700;margin-bottom:14px">Мастера строительной бригады</h3>
           <table class="materials-table" style="margin-bottom:32px">
             <thead>
               <tr><th>Сотрудник</th><th>Email</th><th>Роль</th><th>Квалификация</th></tr>
             </thead>
             <tbody>
-              <tr><td><b>Дмитрий Ковалев</b></td><td>kovalev@stroymaster.by</td><td><span class="tag f" style="background:var(--oma-orange);color:#fff">Бригадир</span></td><td>Ceresit Master PRO</td></tr>
+              <tr><td><b>Дмитрий Ковалев</b></td><td>kovalev@stroymaster.by</td><td><span style="background:var(--oma-orange);color:#fff;font-size:12px;padding:2px 8px;border-radius:4px;font-weight:600">Бригадир</span></td><td>Ceresit Master PRO</td></tr>
               <tr><td><b>Иван Петров</b></td><td>petrov@stroymaster.by</td><td>Мастер</td><td>Керамогранит 120x120</td></tr>
               <tr><td><b>Сергей Морозов</b></td><td>morozov@stroymaster.by</td><td>Мастер</td><td>Фасадные системы Knauf</td></tr>
             </tbody>
           </table>
 
-          <!-- Назначенные курсы и сертификации -->
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
-            <h3 style="font-size:16px;font-weight:700;margin:0">Контроль прохождения курсов и сертификации</h3>
-            <button class="btn" onclick="alert('Выберите сотрудника и курс из формы')" style="background:#f1f5f9;border:1px solid var(--border);padding:8px 14px;border-radius:8px;font-size:13px;font-weight:600">
-              Назначить новый курс сотруднику
-            </button>
-          </div>
-
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:14px">Контроль прохождения курсов и сертификации</h3>
           <table class="materials-table">
             <thead>
               <tr><th>Сотрудник</th><th>Назначенный курс</th><th>Дедлайн</th><th>Статус прохождения</th></tr>
@@ -266,7 +232,7 @@
                 <td><b>Иван Петров</b></td>
                 <td>Монтаж керамогранита Ceresit</td>
                 <td>15.11.2026</td>
-                <td><span style="color:var(--oma-green);font-weight:700">✓ Сертифицирован (3/3 шага)</span></td>
+                <td><span style="color:var(--practicum-green);font-weight:700">✓ Сертифицирован (3/3 шага)</span></td>
               </tr>
               <tr>
                 <td><b>Сергей Морозов</b></td>
@@ -282,16 +248,6 @@
     </div>
   </main>
 
-  <!-- Футер -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-bottom" style="border-top:none;padding-top:0">
-        <div>© 1992–2026 ООО «ОМА». Личный кабинет платформы OMA ACADEMY.</div>
-        <a href="https://oma.by" style="color:#cbd5e1" target="_blank">Перейти в гипермаркет oma.by ↗</a>
-      </div>
-    </div>
-  </footer>
-
   <script src="config.js"></script>
   <script src="app.js"></script>
   <script src="auth.js"></script>
@@ -300,7 +256,6 @@
       var urlParams = new URLSearchParams(location.search);
       var tabParam = urlParams.get('tab') || 'learning';
 
-      // Авторизационные данные
       var user = window.OmaAuth.user() || { name: 'Алексей Смирнов', email: 'smirnov@oma.by', audience: 'pro' };
 
       document.getElementById('cab-user-name').textContent = user.name;
@@ -310,27 +265,30 @@
       var badge = document.getElementById('cab-user-badge');
       if (user.audience === 'pro' || user.audience === 'team') {
         badge.textContent = 'B2B Бригадир / Профи';
-        badge.style.background = 'var(--oma-purple)';
-      } else {
-        badge.textContent = 'Студент';
+        badge.style.background = '#2563eb';
       }
 
       document.getElementById('cab-logout-btn').onclick = function () {
         window.OmaAuth.logout();
       };
 
-      // Переключение вкладок
       var tabBtns = document.querySelectorAll('.tab-btn');
       var tabContents = document.querySelectorAll('.tab-content');
 
       function switchTab(tId) {
-        tabBtns.forEach(function (b) { b.classList.remove('active'); });
-        tabContents.forEach(function (c) { c.classList.remove('active'); });
+        tabBtns.forEach(function (b) {
+          b.style.borderBottomColor = 'transparent';
+          b.style.color = 'var(--text-muted)';
+        });
+        tabContents.forEach(function (c) { c.style.display = 'none'; });
 
         var targetBtn = document.querySelector('.tab-btn[data-tab="' + tId + '"]');
         var targetContent = document.getElementById('tab-' + tId);
-        if (targetBtn) targetBtn.classList.add('active');
-        if (targetContent) targetContent.classList.add('active');
+        if (targetBtn) {
+          targetBtn.style.borderBottomColor = 'var(--oma-orange)';
+          targetBtn.style.color = 'var(--oma-orange)';
+        }
+        if (targetContent) targetContent.style.display = 'block';
       }
 
       tabBtns.forEach(function (btn) {
@@ -343,26 +301,24 @@
 
       if (tabParam) switchTab(tabParam);
 
-      // Загрузка ачивок
       var achievements = await window.OmaApp.data.getAchievements();
       var achContainer = document.getElementById('cab-achievements-container');
       if (achContainer) {
         achContainer.innerHTML = '';
         achievements.forEach(function (a) {
           var el = document.createElement('div');
-          el.className = 'achievement-card' + (a.earned ? ' earned' : '');
+          el.style.cssText = 'background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;box-shadow:var(--shadow-sm)';
           el.innerHTML =
-            '<div class="achievement-icon">' + (a.iconUrl || '🏆') + '</div>' +
-            '<div class="achievement-name">' + a.name + '</div>' +
-            '<div class="achievement-desc">' + a.description + '</div>' +
-            '<div style="margin-top:10px;font-size:11px;font-weight:700;color:' + (a.earned ? 'var(--oma-green)' : 'var(--text-muted)') + '">' +
+            '<div style="font-size:36px;margin-bottom:8px">' + (a.iconUrl || '🏆') + '</div>' +
+            '<div style="font-weight:700;font-size:15px;margin-bottom:6px">' + a.name + '</div>' +
+            '<div style="font-size:12px;color:var(--text-muted)">' + a.description + '</div>' +
+            '<div style="margin-top:10px;font-size:11px;font-weight:700;color:' + (a.earned ? 'var(--practicum-green)' : 'var(--text-muted)') + '">' +
               (a.earned ? '✓ ПОЛУЧЕНО' : 'В процессе') +
             '</div>';
           achContainer.appendChild(el);
         });
       }
 
-      // Привязка дисконтной карты
       document.getElementById('cab-sync-card-btn').onclick = async function () {
         var cardVal = document.getElementById('cab-card-input').value.trim();
         if (!cardVal) { alert('Введите номер дисконтной карты ОМА'); return; }
@@ -371,13 +327,12 @@
         document.getElementById('cab-card-status').textContent = '✓ Дисконтная карта ' + cardVal + ' успешно привязана (+50 баллов)!';
       };
 
-      // Списание бонусов
       document.getElementById('btn-spend-submit').onclick = function () {
         var amt = parseInt(document.getElementById('inp-spend-amount').value, 10);
         var msg = document.getElementById('spend-result-msg');
         if (!amt || amt <= 0) { msg.textContent = 'Укажите количество баллов'; msg.style.color = '#ef4444'; return; }
         msg.textContent = '✓ Успешно списано ' + amt + ' баллов. Скидка на заказ в ОМА активирована!';
-        msg.style.color = 'var(--oma-green)';
+        msg.style.color = 'var(--practicum-green)';
         var current = parseInt(document.getElementById('cab-total-points').textContent, 10);
         document.getElementById('cab-total-points').textContent = Math.max(0, current - amt) + ' ⭐';
       };
