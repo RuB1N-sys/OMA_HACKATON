@@ -10,18 +10,34 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.Map;
 
-/**
- * Централизованный обработчик исключений.
- * Конвертирует доменные исключения в JSON-ответы вида {"message": "..."}.
- */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     ResponseEntity<Map<String, String>> handleValidation(MethodArgumentNotValidException e) {
         var fieldError = e.getBindingResult().getFieldError();
-        String message = fieldError != null ? fieldError.getDefaultMessage() : "Некорректные данные запроса";
+        String message = fieldError != null ? fieldError.getDefaultMessage() : "Ошибка валидации данных";
         return ResponseEntity.badRequest().body(Map.of("message", message));
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    ResponseEntity<Map<String, String>> handleNotFound(NotFoundException e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("message", e.getMessage()));
+    }
+
+    @ExceptionHandler(ForbiddenException.class)
+    ResponseEntity<Map<String, String>> handleForbidden(ForbiddenException e) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of("message", e.getMessage()));
+    }
+
+    @ExceptionHandler(BadRequestException.class)
+    ResponseEntity<Map<String, String>> handleBadRequest(BadRequestException e) {
+        return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    ResponseEntity<Map<String, String>> handleIllegalArgument(IllegalArgumentException e) {
+        return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
     }
 
     @ExceptionHandler(ConflictException.class)
@@ -41,6 +57,6 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(DataIntegrityViolationException.class)
     ResponseEntity<Map<String, String>> handleDataIntegrity(DataIntegrityViolationException e) {
-        return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("message", "Данный email уже зарегистрирован"));
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("message", "Нарушение целостности данных: запись уже существует"));
     }
 }
