@@ -3,29 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>OMA Практикум — образовательная e-commerce платформа гипермаркета ОМА</title>
+  <title>Практикум ОМА (OMA ACADEMY) — Кинематографичная образовательная e-commerce платформа</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="apple-cinema.css">
 </head>
-<body>
+<body style="background: #0A0B0E;">
 
-  <!-- 1. ШАПКА В ТОЧНОМ СТИЛЕ ЯНДЕКС ПРАКТИКУМ (В ЦВЕТАХ ОМА) -->
-  <header class="site-header">
+  <!-- ШАПКА ПЛАТФОРМЫ В ЦВЕТАХ ОМА С ПОДДЕРЖКОЙ АВТОРИЗАЦИИ И БАЛЛОВ -->
+  <header class="site-header" style="background: rgba(17, 19, 24, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
     <div class="container">
       <div class="header-inner">
         <!-- Логотип: Оранжевый кружок О + Снежинка + Практикум ОМА -->
-        <a class="logo-practicum" href="index.html">
+        <a class="logo-practicum" href="index.html" style="color: #ffffff;">
           <span class="logo-badge-circle">О</span>
-          <span class="logo-asterisk">✱</span>
+          <span class="logo-asterisk" style="color: #ffffff;">✱</span>
           <span class="logo-brand-text">Практикум <span>ОМА</span></span>
         </a>
 
-        <!-- Навигация верхнего меню как на скриншоте 1 и 2 -->
+        <!-- Навигация верхнего меню -->
         <nav class="header-nav">
-          <a class="header-nav-link" href="gallery.html">Блог & Галерея</a>
-          <a class="header-nav-link" href="cabinet.html?tab=b2b">Компаниям (B2B)</a>
-          <a class="header-nav-link" href="index.html#expertise">Об Академии ▾</a>
-          <a class="header-nav-link" href="courses.html">Все курсы ▾</a>
-          <a class="btn-header-catalog" href="courses.html">В каталог</a>
+          <a class="header-nav-link" href="gallery.html" style="color: #cbd5e1;">Блог & Галерея</a>
+          <a class="header-nav-link" href="cabinet.html?tab=b2b" style="color: #cbd5e1;">Компаниям (B2B)</a>
+          <a class="header-nav-link" href="#expertise" style="color: #cbd5e1;">Бренды & Экспертиза ▾</a>
+          <a class="header-nav-link" href="courses.html" style="color: #cbd5e1;">Все курсы ▾</a>
+          <a class="btn-header-catalog" href="courses.html" style="background: var(--oma-orange-vibrant); color: #fff;">В каталог</a>
         </nav>
 
         <!-- Баллы ОМА и Профиль -->
@@ -37,180 +38,25 @@
     </div>
   </header>
 
-  <!-- 2. ГЕРОЙ-БАННЕР (НЕБО, ЛЮДИ НА ХОЛМЕ, СТЕКЛЯННЫЙ ХАБ-БОКС) — ТОЧНО ПО СКРИНШОТУ 1 -->
-  <section class="hero-practicum">
-    <div class="container">
-      <!-- Верхняя строка статусов / наград -->
-      <div class="hero-status-row">
-        <div class="hero-status-badge">
-          <span>✦</span> №1 по обучению ремонту и строительству в 2026 году
-          <span class="status-info-icon" title="По данным ритейлера ОМА и ассоциации DIY">i</span>
-        </div>
-        <div class="hero-status-badge">
-          <span>⚡</span> Лучшая образовательная e-commerce платформа года
-          <span class="status-info-icon" title="Интеграция с магазином oma.by">i</span>
-        </div>
-      </div>
+  <!-- ГЛАВНЫЙ ИНТЕРАКТИВНЫЙ REACT-КОНТЕЙНЕР (APPLE PRODUCT PAGE SCROLLYTELLING) -->
+  <div id="oma-react-app"></div>
 
-      <!-- Главный заголовок -->
-      <h1 class="hero-main-title">
-        Практикум ОМА — профессии и навыки ремонта, с которыми строят дом и повышают доход
-      </h1>
-
-      <!-- Центральный интерактивный поисковый хаб-бокс (из скриншота 1) -->
-      <div class="hero-search-hub">
-        <!-- Оранжевый плавающий бейдж скидки справа вверху -->
-        <div class="hero-discount-pill">
-          до –30% по 31.10
-        </div>
-
-        <!-- Поисковая строка -->
-        <div class="hub-search-input-wrap">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="M21 21l-4.35-4.35"></path>
-          </svg>
-          <input type="text" id="hub-search" class="hub-search-input" placeholder="Навык, курс или материал (Ceresit, Лофт, плитка)...">
-        </div>
-
-        <!-- Теги-таблетки (Pill tags) -->
-        <div class="hub-tags-grid">
-          <button class="hub-tag-pill" onclick="location.href='courses.html?g=teen'">Мастер-классы DIY</button>
-          <button class="hub-tag-pill" onclick="location.href='courses.html?g=student'">Электрика</button>
-          <button class="hub-tag-pill" onclick="location.href='courses.html?g=pro'">Плитка и Ceresit</button>
-          <button class="hub-tag-pill" onclick="location.href='courses.html?g=student'">Дизайн</button>
-          <button class="hub-tag-pill" onclick="location.href='courses.html?g=teen'">Мебель Лофт</button>
-          <button class="hub-tag-pill" onclick="location.href='courses.html?g=pro'">Фасады Knauf</button>
-          <button class="hub-tag-pill" onclick="location.href='courses.html?g=team'">B2B Бригады</button>
-          <button class="hub-tag-pill" onclick="location.href='courses.html'">Все курсы</button>
-        </div>
-
-        <!-- Кнопка "Начать бесплатно" внизу хаб-бокса -->
-        <button class="hub-action-btn" onclick="window.OmaApp.ui.openOnboardingModal()">
-          <span class="asterisk-orange">✱</span>
-          <span>Начать бесплатно (подбор за 1 мин)</span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. ЗЕЛЕНЫЙ ПРОМО-БАННЕР ("ДВОЙНАЯ ВЫГОДА В ОКТЯБРЕ") — ТОЧНО ПО СКРИНШОТУ 1 -->
-  <section class="promo-green-section">
-    <div class="container">
-      <div class="promo-green-banner">
-        <!-- Левый круглый бейдж 30% -->
-        <div class="promo-discount-circle">
-          30%
-        </div>
-
-        <!-- Центральный контент -->
-        <div class="promo-content">
-          <h2 class="promo-title">
-            Двойная выгода в октябре: скидка до 30% и набор материалов бонусом
-          </h2>
-          <p class="promo-subtitle">
-            Оплатите со скидкой до 31.10 и получите готовый комплект материалов в 1 клик на ~350 BYN, в том числе сметы по B2B-сертификациям
-          </p>
-          <button class="btn-promo-white" onclick="location.href='courses.html'">
-            Выбрать курс
-          </button>
-        </div>
-
-        <!-- Правая 3D-карточка выгоды -->
-        <div class="promo-benefit-card">
-          <div class="floating-ai-badge">✦ PRO</div>
-          <div class="benefit-amount">~350 BYN</div>
-          <div class="benefit-label">Экономия на смете ОМА</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. ТЕМНАЯ СЕКЦИЯ ЭКСПЕРТИЗЫ — ТОЧНО ПО СКРИНШОТУ 2 -->
-  <section class="expertise-section" id="expertise">
-    <div class="container">
-      <div class="expertise-banner-dark">
-        <h2 class="expertise-title">
-          Экспертиза в технологиях и материалах —<br>это у нас от ОМА и брендов-партнеров
-        </h2>
-
-        <!-- Главное фото команды экспертов -->
-        <div class="expertise-photo-hero" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80')"></div>
-
-        <!-- 3 темные карточки снизу (по скриншоту 2) -->
-        <div class="expertise-cards-grid">
-          <div class="expertise-card">
-            <div class="expertise-badge-pill">О</div>
-            <p>
-              Профессиональные мастера, технологи сети ОМА и наставники курсов — действующие эксперты с многолетним опытом в строительстве и отделке.
-            </p>
-          </div>
-          <div class="expertise-card">
-            <div class="expertise-badge-pill" style="background:#2563eb">✦</div>
-            <p>
-              Совместные программы и прямая сертификация мастеров от брендов-поставщиков: Ceresit, Knauf, Litokol, Bosch и Makita.
-            </p>
-          </div>
-          <div class="expertise-card">
-            <div class="expertise-badge-pill" style="background:#10b981">⭐</div>
-            <p>
-              Энтузиасты своего дела помогают студентам учиться на реальном ассортименте гипермаркетов ОМА, делиться сметами и отзывами.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. КАТАЛОГ: ТРЕХУРОВНЕВАЯ СТРУКТУРА ОМА ACADEMY ПО ТЗ -->
-  <section class="section" style="padding-top:10px">
-    <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px">
-        <div>
-          <span class="hero-discount-pill" style="position:static;display:inline-block;margin-bottom:8px">ПРАКТИКА И СМЕТА</span>
-          <h2 style="font-size:32px;font-weight:800;letter-spacing:-0.5px">Популярные направления обучения</h2>
-          <p style="color:var(--text-secondary);font-size:15px">Каждый курс включает видеоуроки, пошаговый тренажер и кнопку покупки сметы в 1 клик на oma.by</p>
-        </div>
-        <a href="courses.html" class="btn-primary" style="padding:10px 22px">
-          Смотреть все программы (6) →
-        </a>
-      </div>
-
-      <div class="courses-grid" id="homepage-featured-grid">
-        <!-- Заполняется из AppData -->
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. ПЛАВАЮЩИЕ ВИДЖЕТЫ ВНИЗУ (ИЗ СКРИНШОТА 2) -->
-  <!-- Плавающий синий виджет слева внизу: Воркшопы от экспертов -->
-  <div class="floating-workshop-card" onclick="window.OmaApp.ui.openOnboardingModal()">
+  <!-- Плавающий виджет слева внизу: Бесплатные мастер-классы -->
+  <div class="floating-workshop-card" onclick="window.OmaApp && window.OmaApp.ui && window.OmaApp.ui.openOnboardingModal()" style="background: rgba(17, 24, 39, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); color: #fff; z-index: 98;">
     <div class="workshop-avatars-row">
       <img class="workshop-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Мастер">
       <img class="workshop-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Технолог">
       <img class="workshop-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Эксперт">
     </div>
-    <div class="workshop-text">
+    <div class="workshop-text" style="color: #fff;">
       Бесплатные мастер-классы от экспертов ОМА ↗
     </div>
   </div>
 
-  <!-- Плавающий темный бар по центру внизу: Двойная выгода до 31 октября -->
-  <div class="floating-bottom-bar">
-    <div class="floating-discount-badge">30%</div>
-    <div class="floating-bar-text">
-      <b>Двойная выгода до 31 октября</b>
-      <span>Скидка до 30% и набор материалов в 1 клик</span>
-    </div>
-    <button class="btn-floating-action" onclick="location.href='courses.html'">
-      Выбрать курс
-    </button>
-  </div>
-
-  <!-- Футер -->
-  <footer class="site-footer" style="padding-bottom:100px">
+  <!-- ФУТЕР -->
+  <footer class="site-footer" style="padding: 60px 0 100px; background: #07080A; border-top: 1px solid rgba(255, 255, 255, 0.08);">
     <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:28px;margin-bottom:28px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:28px;margin-bottom:28px">
         <div class="logo-practicum" style="color:#ffffff">
           <span class="logo-badge-circle">О</span>
           <span class="logo-asterisk" style="color:#ffffff">✱</span>
@@ -221,68 +67,29 @@
           <a href="learn.html?id=1">Тренажер</a>
           <a href="gallery.html">Галерея До/После</a>
           <a href="cabinet.html">Личный кабинет</a>
+          <a href="cabinet.html?tab=b2b" style="color:var(--oma-blue-titanium)">B2B Кабинет</a>
           <a href="https://oma.by" target="_blank" style="color:#ffffff">Гипермаркет oma.by ↗</a>
         </div>
       </div>
       <div style="font-size:13px;color:#64748b;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
-        <div>© 1992–2026 ООО «ОМА». Образовательная платформа OMA Практикум.</div>
-        <div>Единый контакт-центр: <b>536-45-00</b></div>
+        <div>© 1992–2026 ООО «ОМА». Кинематографичная образовательная платформа Практикум ОМА.</div>
+        <div>Единый контакт-центр: <b>536-45-00</b> (A1, МТС, Life)</div>
       </div>
     </div>
   </footer>
 
+  <!-- Скрипты: React 18 CDN + Локальный офлайн фоллбек -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="vendor/react-offline.js"></script>
+
+  <!-- Бизнес-логика ОМА и Клиентский движок -->
   <script src="config.js"></script>
   <script src="app.js"></script>
   <script src="auth.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', async function () {
-      // Поиск из хаб-бокса
-      var hubSearch = document.getElementById('hub-search');
-      if (hubSearch) {
-        hubSearch.addEventListener('keypress', function (e) {
-          if (e.key === 'Enter') {
-            location.href = 'courses.html?q=' + encodeURIComponent(hubSearch.value.trim());
-          }
-        });
-      }
 
-      // Загрузка популярных курсов
-      var projects = await window.OmaApp.data.getProjects();
-      var grid = document.getElementById('homepage-featured-grid');
-      if (grid) {
-        grid.innerHTML = '';
-        projects.slice(0, 3).forEach(function (p) {
-          var audBadge = p.audience === 'teen' ? 'B2C Мастер-класс' : (p.audience === 'student' ? 'Студенты' : 'B2B Сертификация');
-          var card = document.createElement('div');
-          card.className = 'course-card';
-          card.innerHTML =
-            '<div class="course-cover" style="background-image:url(\'' + p.imageUrl + '\')">' +
-              '<span class="course-cover-badge">' + audBadge + '</span>' +
-              '<span class="course-points-tag">+' + p.pointsReward + ' баллов ОМА</span>' +
-            '</div>' +
-            '<div class="course-body">' +
-              '<div class="course-meta">' +
-                '<span class="meta-item">⏱ ' + p.durationMin + ' мин</span>' +
-                '<span class="meta-item">⚡ ' + p.difficulty + '</span>' +
-                '<span class="meta-item">📦 ' + (p.stepsCount || 3) + ' шага</span>' +
-              '</div>' +
-              '<h3 class="course-name">' + p.title + '</h3>' +
-              '<p class="course-desc">' + p.description + '</p>' +
-              '<div class="course-footer">' +
-                '<div class="price-block">' +
-                  '<div class="price-val">' + p.price.toFixed(2) + ' BYN</div>' +
-                  '<div class="price-sub">Смета материалов ОМА</div>' +
-                '</div>' +
-                '<div class="card-actions">' +
-                  '<button class="btn-bom-kit" onclick="window.OmaApp.ui.openBomModal(' + p.id + ')">🛒 Смета в 1 клик</button>' +
-                  '<button class="btn-learn" onclick="location.href=\'learn.html?id=' + p.id + '\'">Тренажер →</button>' +
-                '</div>' +
-              '</div>' +
-            '</div>';
-          grid.appendChild(card);
-        });
-      }
-    });
-  </script>
+  <!-- React 18 Apple Cinema Engine -->
+  <script src="oma-react-app.js"></script>
+
 </body>
 </html>

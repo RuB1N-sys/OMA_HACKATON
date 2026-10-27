@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Личный кабинет — Практикум ОМА</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="apple-cinema.css">
 </head>
 <body>
 
@@ -225,20 +226,40 @@
           <h3 style="font-size:16px;font-weight:700;margin-bottom:14px">Контроль прохождения курсов и сертификации</h3>
           <table class="materials-table">
             <thead>
-              <tr><th>Сотрудник</th><th>Назначенный курс</th><th>Дедлайн</th><th>Статус прохождения</th></tr>
+              <tr><th>Сотрудник</th><th>Назначенный курс</th><th>Прогресс</th><th>Дедлайн</th><th>Статус / Документ</th></tr>
             </thead>
             <tbody>
               <tr>
                 <td><b>Иван Петров</b></td>
-                <td>Монтаж керамогранита Ceresit</td>
+                <td>Монтаж керамогранита Ceresit CM 17</td>
+                <td style="min-width: 140px;">
+                  <div class="progress-bar-container" style="margin-bottom: 2px;">
+                    <div class="progress-bar-fill" style="width: 100%; background: var(--oma-emerald);"></div>
+                  </div>
+                  <span style="font-size: 11px; color: var(--oma-emerald); font-weight: 700;">100% (3 из 3 шагов)</span>
+                </td>
                 <td>15.11.2026</td>
-                <td><span style="color:var(--practicum-green);font-weight:700">✓ Сертифицирован (3/3 шага)</span></td>
+                <td>
+                  <button class="btn" style="background: rgba(16, 185, 129, 0.12); color: var(--oma-emerald); border: 1px solid var(--oma-emerald); padding: 6px 14px; border-radius: 8px; font-weight: 700; font-size: 12px; cursor: pointer;" onclick="openCabCertModal('Иван Петров')">
+                    🎉 Выдать PDF-диплом
+                  </button>
+                </td>
               </tr>
               <tr>
                 <td><b>Сергей Морозов</b></td>
                 <td>Энергоэффективные фасады Knauf</td>
+                <td style="min-width: 140px;">
+                  <div class="progress-bar-container" style="margin-bottom: 2px;">
+                    <div class="progress-bar-fill" style="width: 50%; background: var(--oma-orange-vibrant);"></div>
+                  </div>
+                  <span style="font-size: 11px; color: var(--oma-orange-vibrant); font-weight: 700;">50% (2 из 4 шагов)</span>
+                </td>
                 <td>30.11.2026</td>
-                <td><span style="color:var(--oma-orange);font-weight:700">В процессе (2/4 шага)</span></td>
+                <td>
+                  <button class="btn" style="background: #f1f5f9; color: var(--text-muted); border: 1px solid var(--border); padding: 6px 14px; border-radius: 8px; font-weight: 600; font-size: 12px; cursor: pointer;" onclick="alert('Напоминание отправлено на morozov@stroymaster.by')">
+                    Напомнить
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -337,6 +358,39 @@
         document.getElementById('cab-total-points').textContent = Math.max(0, current - amt) + ' ⭐';
       };
     });
+
+    function openCabCertModal(empName) {
+      if (window.OmaAcademyApp && window.OmaAcademyApp.burstConfetti) {
+        window.OmaAcademyApp.burstConfetti();
+      }
+      var overlay = document.getElementById('cab-cert-overlay');
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'cab-cert-overlay';
+        overlay.className = 'modal-overlay';
+        document.body.appendChild(overlay);
+      }
+      overlay.innerHTML =
+        '<div class="modal-card" style="text-align:center;max-width:540px;border-radius:24px;padding:36px">' +
+          '<button class="modal-close-btn" onclick="document.getElementById(\'cab-cert-overlay\').classList.remove(\'open\')">×</button>' +
+          '<div style="width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;font-size:32px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 10px 25px rgba(245,158,11,0.4)">★</div>' +
+          '<div style="font-size:12px;font-weight:800;color:var(--practicum-green);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">ОФИЦИАЛЬНАЯ ВЕРИФИКАЦИЯ ОМА & CERESIT</div>' +
+          '<h2 style="font-size:22px;font-weight:900;margin-bottom:10px">Сертификат квалификации мастера</h2>' +
+          '<p style="color:var(--text-secondary);font-size:14px;margin-bottom:20px">Сотрудник <b>' + empName + '</b> успешно прошел практический курс и аттестован на монтаж керамогранита с Ceresit CM 17.</p>' +
+          '<div style="background:#f8fafc;border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:24px;text-align:left;font-size:13px">' +
+            '<div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="color:var(--text-muted)">Номер реестра:</span><b>OMA-CERT-2026-8819</b></div>' +
+            '<div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="color:var(--text-muted)">Компания:</span><b>ООО «СтройМастер Минск»</b></div>' +
+            '<div style="display:flex;justify-content:space-between"><span style="color:var(--text-muted)">Статус:</span><b style="color:var(--practicum-green)">✓ Подлинность подтверждена</b></div>' +
+          '</div>' +
+          '<div style="display:flex;gap:12px">' +
+            '<button class="btn-primary" style="flex:1;justify-content:center;padding:12px" onclick="alert(\'Загрузка OMA-CERT-8819.pdf...\');document.getElementById(\'cab-cert-overlay\').classList.remove(\'open\')">Скачать официальный PDF</button>' +
+            '<button class="btn" style="background:#f1f5f9;color:var(--text-main);padding:12px 18px;border-radius:var(--radius-sm);font-weight:600" onclick="document.getElementById(\'cab-cert-overlay\').classList.remove(\'open\')">Закрыть</button>' +
+          '</div>' +
+        '</div>';
+      overlay.classList.add('open');
+    }
+  </script>
+  <script src="oma-react-app.js"></script>
   </script>
 </body>
 </html>

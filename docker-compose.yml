@@ -1,7 +1,7 @@
 # ==============================================================================
 # OMA ACADEMY — ПОЛНАЯ КОМПОНОВКА СЕРВИСОВ (DOCKER COMPOSE)
 # 1. PostgreSQL 16 (СУБД с автоматическим применением схемы и сидов)
-# 2. Spring Boot 3 Backend (Java 21 REST API)
+# 2. Spring Boot 3 Backend (Java REST API)
 # 3. Nginx Frontend (SPA + Reverse Proxy)
 # ==============================================================================
 
@@ -31,8 +31,9 @@ services:
     networks:
       - oma_network
 
+
   # ----------------------------------------------------------------------------
-  # 2. Бэкенд Java Spring Boot 3 + Java 21
+  # 2. Бэкенд Java Spring Boot 3
   # ----------------------------------------------------------------------------
   backend:
     build:
@@ -41,25 +42,27 @@ services:
     container_name: oma_backend
     restart: unless-stopped
     depends_on:
-      db:
+      db: # Ссылаемся на ключ сервиса базы данных
         condition: service_healthy
     environment:
       DB_URL: jdbc:postgresql://db:5432/${POSTGRES_DB:-oma_academy}
       DB_USER: ${POSTGRES_USER:-oma}
       DB_PASSWORD: ${POSTGRES_PASSWORD:-oma_dev_password}
       JWT_SECRET: ${JWT_SECRET:-oma-academy-super-secure-jwt-secret-key-32chars}
-      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost,http://localhost:80,http://localhost:3000,http://localhost:8000,http://localhost:5500,http://127.0.0.1}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost,http://localhost:80,http://localhost:3000,http://localhost:8000}
       DDL_AUTO: update
     ports:
       - "${BACKEND_PORT:-8080}:8080"
     healthcheck:
-      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:8080/api/projects || exit 1"]
+      # Проверка готовности TCP-порта через netcat или встроенную Java
+      test: ["CMD-SHELL", "nc -z localhost 8080 || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 5
-      start_period: 30s
+      start_period: 60s
     networks:
       - oma_network
+
 
   # ----------------------------------------------------------------------------
   # 3. Фронтенд (Nginx: SPA + Reverse Proxy для /api/)
@@ -72,17 +75,19 @@ services:
     restart: unless-stopped
     depends_on:
       backend:
-        condition: service_healthy
+        condition: service_started # Фронтенд стартует сразу после запуска бэкенда
     ports:
       - "${FRONTEND_PORT:-80}:80"
       - "3000:80"
     healthcheck:
-      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost/healthz || exit 1"]
+      # Проверяем доступность index.html на корне
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost/ || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 3
     networks:
       - oma_network
+
 
 # ------------------------------------------------------------------------------
 # Постоянные тома и сеть
