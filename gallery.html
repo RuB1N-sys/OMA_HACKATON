@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Галерея проектов До/После — OMA ACADEMY</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Верхняя сервисная полоса ОМА -->
+  <div class="oma-topbar">
+    <div class="container">
+      <div class="oma-topbar-left">
+        <span>Город: <b>Минск</b></span>
+        <span>Контакт-центр: <b>536-45-00</b></span>
+      </div>
+      <div class="oma-topbar-right">
+        <a href="https://oma.by" target="_blank">Гипермаркет oma.by ↗</a>
+        <a href="courses.html">Каталог курсов</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Главная шапка в стиле Яндекс Практикум -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand-logo" href="index.html">
+          <img src="logo.png" alt="ОМА" style="height:38px;width:auto;border-radius:4px">
+          <span class="brand-badge">АКАДЕМИЯ</span>
+          <span class="brand-sub">Галерея UGC</span>
+        </a>
+
+        <nav class="main-nav">
+          <a class="nav-link" href="index.html">Главная</a>
+          <a class="nav-link" href="courses.html">Каталог курсов</a>
+          <a class="nav-link" href="learn.html?id=1">Тренажер (Практика)</a>
+          <a class="nav-link active" href="gallery.html">Галерея До/После</a>
+          <a class="nav-link" href="cabinet.html">Личный кабинет</a>
+        </nav>
+
+        <div class="header-actions">
+          <div id="header-points-slot"></div>
+          <div id="header-auth-slot"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding: 40px 0 60px">
+    <div class="container">
+      <div style="font-size:13px;color:var(--text-muted);margin-bottom:16px">
+        <a href="index.html" style="color:var(--text-muted)">Главная</a> / <span>Галерея До и После</span>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;flex-wrap:wrap;gap:20px">
+        <div>
+          <span class="brand-badge" style="margin-bottom:8px;display:inline-block">СОЦИАЛЬНОЕ ДОКАЗАТЕЛЬСТВО</span>
+          <h1 style="font-size:32px;font-weight:800;letter-spacing:-0.5px;margin-bottom:8px">Проекты выпускников: До и После</h1>
+          <p style="color:var(--text-secondary);font-size:16px;max-width:640px">
+            Вдохновляйтесь реальными результатами студентов и сертифицированных мастеров. Все работы выполнены материалами гипермаркета ОМА.
+          </p>
+        </div>
+        <button id="btn-open-post-modal" class="btn-primary" style="padding:12px 24px">
+          + Опубликовать свой проект
+        </button>
+      </div>
+
+      <!-- Сетка проектов До/После -->
+      <div class="gallery-grid" id="full-gallery-grid">
+        <!-- Карточки -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Модальное окно публикации своего проекта До/После -->
+  <div id="publish-modal-overlay" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="close-publish-modal">×</button>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+        <span class="brand-badge">UGC ПУБЛИКАЦИЯ</span>
+        <span style="font-size:12px;color:var(--oma-amber);font-weight:700">+50 баллов на карту ОМА</span>
+      </div>
+      <h2 style="font-size:22px;font-weight:800;margin-bottom:8px">Поделитесь результатом работы</h2>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:20px">
+        Ваш проект увидят тысячи покупателей ОМА, а вам начислится ачивка «Вдохновитель сообщества».
+      </p>
+
+      <form id="publish-form">
+        <div style="margin-bottom:14px">
+          <label style="display:block;font-size:12px;font-weight:600;margin-bottom:4px">Название проекта</label>
+          <input type="text" id="inp-post-title" placeholder="Ремонт ванной комнаты с керамогранитом" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px" required>
+        </div>
+        <div style="margin-bottom:14px">
+          <label style="display:block;font-size:12px;font-weight:600;margin-bottom:4px">Ссылка на фото «ДО»</label>
+          <input type="url" id="inp-post-before" placeholder="https://..." style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px" required>
+        </div>
+        <div style="margin-bottom:14px">
+          <label style="display:block;font-size:12px;font-weight:600;margin-bottom:4px">Ссылка на фото «ПОСЛЕ»</label>
+          <input type="url" id="inp-post-after" placeholder="https://..." style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px" required>
+        </div>
+        <div style="margin-bottom:16px">
+          <label style="display:block;font-size:12px;font-weight:600;margin-bottom:4px">Описание процесса и использованных материалов ОМА</label>
+          <textarea id="inp-post-desc" rows="3" placeholder="Использовали клей Ceresit CM 17, грунтовку CT 17 и СВП..." style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:12px">
+          Опубликовать в галерее
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Футер -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none;padding-top:0">
+        <div>© 1992–2026 ООО «ОМА». Галерея студенческих работ платформы OMA ACADEMY.</div>
+        <a href="https://oma.by" style="color:#cbd5e1" target="_blank">Перейти в гипермаркет oma.by ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+  <script src="auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      var grid = document.getElementById('full-gallery-grid');
+      var modal = document.getElementById('publish-modal-overlay');
+      var openBtn = document.getElementById('btn-open-post-modal');
+      var closeBtn = document.getElementById('close-publish-modal');
+      var form = document.getElementById('publish-form');
+
+      openBtn.onclick = function () { modal.classList.add('open'); };
+      closeBtn.onclick = function () { modal.classList.remove('open'); };
+      modal.onclick = function (e) { if (e.target === modal) modal.classList.remove('open'); };
+
+      var gallery = await window.OmaApp.data.getGallery();
+
+      function render(items) {
+        grid.innerHTML = '';
+        items.forEach(function (g) {
+          var card = document.createElement('div');
+          card.className = 'gallery-card';
+          card.innerHTML =
+            '<div class="compare-box">' +
+              '<img class="compare-img" src="' + g.beforeUrl + '" alt="До">' +
+              '<span class="compare-badge badge-before">ДО РЕМОНТА</span>' +
+              '<img class="compare-img" src="' + g.afterUrl + '" alt="После">' +
+              '<span class="compare-badge badge-after">ПОСЛЕ (ОМА)</span>' +
+            '</div>' +
+            '<div class="gallery-info">' +
+              '<h3 class="gallery-title">' + g.title + '</h3>' +
+              '<div class="gallery-author">Автор: <b>' + g.userName + '</b> • ' + (g.projectTitle || 'Проект ОМА') + '</div>' +
+              '<p style="font-size:13px;color:var(--text-secondary);line-height:1.55;margin-bottom:14px">' + g.description + '</p>' +
+              '<div style="font-size:12px;color:var(--text-muted);display:flex;justify-content:space-between;border-top:1px solid var(--border);padding-top:10px">' +
+                '<span>Опубликовано: ' + (g.publishedAt || '2026-10-26') + '</span>' +
+                '<span style="color:var(--oma-green);font-weight:700">✓ Проверено экспертами ОМА</span>' +
+              '</div>' +
+            '</div>';
+          grid.appendChild(card);
+        });
+      }
+
+      render(gallery);
+
+      form.onsubmit = function (e) {
+        e.preventDefault();
+        var title = document.getElementById('inp-post-title').value;
+        var beforeUrl = document.getElementById('inp-post-before').value;
+        var afterUrl = document.getElementById('inp-post-after').value;
+        var desc = document.getElementById('inp-post-desc').value;
+
+        var user = window.OmaAuth.user() || { name: 'Вы' };
+
+        gallery.unshift({
+          id: Date.now(),
+          title: title,
+          beforeUrl: beforeUrl,
+          afterUrl: afterUrl,
+          description: desc,
+          userName: user.name,
+          projectTitle: 'Индивидуальный проект ОМА',
+          publishedAt: 'Только что'
+        });
+
+        render(gallery);
+        modal.classList.remove('open');
+        form.reset();
+        alert('🎉 Проект успешно опубликован! Вам начислено +50 баллов на карту ОМА!');
+      };
+    });
+  </script>
+</body>
+</html>

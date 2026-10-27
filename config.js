@@ -1,5 +1,7 @@
+/**
+ * OMA ACADEMY — Конфигурация клиента
+ */
 window.OMA_CONFIG = {
-  // Адрес Java-бэкенда (Spring Boot), например "http://localhost:8080".
-  // Пусто = демо-режим: пользователи хранятся в localStorage браузера, сервер не нужен.
-  API_URL: ''
+  // Адрес Java Spring Boot бэкенда (порт 8080)
+  API_URL: 'http://localhost:8080'
 };

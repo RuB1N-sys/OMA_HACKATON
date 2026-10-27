@@ -1,56 +1,253 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#19132D">
-<title>Курсы · ОМА Академия</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Каталог обучающих программ — OMA ACADEMY</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="top"><div class="container"><span>Выбрано: <b>Минск</b></span><span>Контакт-центр: <b>536-45-00</b></span><a class="r" href="#">Адреса магазинов</a><a href="#">Покупателям</a><a href="#">Компания ОМА</a></div></div>
-<div class="mid"><div class="container">
-  <a class="logo" href="index.html" aria-label="ОМА Академия"><img src="logo.png" alt="ОМА"><span>Академия</span></a>
-  <form class="search" role="search"><input id="q" type="search" placeholder="Найти курс" aria-label="Найти курс"><button type="submit">Найти</button></form>
-  <div class="acc"><a href="cabinet.html"><b>Вход или</b>Регистрация</a><a href="cabinet.html"><b>Мои курсы</b>Личный кабинет</a></div>
-</div></div>
-<nav class="bar" aria-label="Разделы"><div class="container">
-<a class="catalog" href="courses.html">Все курсы</a>
-<a class="m red" href="courses.html?g=teen">Школьникам</a>
-<a class="m blue" href="courses.html?g=student">Студентам</a>
-<a class="m purple" href="courses.html?g=pro">Переподготовка</a>
-<a class="m green" href="courses.html?g=team">Сотрудникам ОМА</a>
-<a class="m dorange" href="cabinet.html">Личный кабинет</a></div></nav>
 
-
-<main class="container">
-<div class="crumbs"><a href="index.html">Главная</a> / <span>Курсы</span></div>
-
- <div class="layout">
-  <div class="aside">
-   <div class="box" id="aud"><h2>Направление</h2>
-    <a href="courses.html?g=all" data-aud="all">Все курсы</a><a href="courses.html?g=teen" data-aud="teen">Школьникам</a><a href="courses.html?g=student" data-aud="student">Студентам</a><a href="courses.html?g=pro" data-aud="pro">Переподготовка</a><a href="courses.html?g=team" data-aud="team">Сотрудникам ОМА</a></div>
-   <div class="box"><h2>Формат</h2><select id="ff" aria-label="Формат"><option value="">Любой</option><option>Офлайн</option><option>Онлайн</option><option>Смешанный</option></select></div>
-   <div class="box"><h2>Стоимость</h2><select id="fp" aria-label="Стоимость"><option value="">Любая</option><option>Бесплатно</option><option>Платно</option></select></div>
+  <!-- Верхняя сервисная полоса ОМА -->
+  <div class="oma-topbar">
+    <div class="container">
+      <div class="oma-topbar-left">
+        <span>Город: <b>Минск</b></span>
+        <span>Контакт-центр: <b>536-45-00</b></span>
+      </div>
+      <div class="oma-topbar-right">
+        <a href="https://oma.by" target="_blank">Гипермаркет oma.by ↗</a>
+        <a href="cabinet.html">Личный кабинет</a>
+      </div>
+    </div>
   </div>
-  <div><h1 id="ttl"></h1><p class="lead" id="lead"></p><div class="grid" id="grid" aria-live="polite"></div></div>
- </div>
 
-</main>
-<div class="promo"><div class="container">
- <a href="cabinet.html"><b>Личный кабинет</b><span>Прогресс, расписание, сертификаты</span></a>
- <a href="courses.html"><b>Каталог курсов</b><span>Для школьников, студентов и специалистов</span></a>
- <a href="index.html#apply"><b>Запись на курсы</b><span>Оставьте заявку на ближайший набор</span></a></div></div>
-<footer><div class="container">
- <div><h3>Академия</h3><a href="index.html">Главная</a><a href="courses.html">Курсы</a><a href="cabinet.html">Личный кабинет</a></div>
- <div><h3>Компания ОМА</h3><a href="#">О компании</a><a href="#">Работа в ОМА</a><a href="#">Контакты</a></div>
- <div><p>© 1992–2026 ООО «ОМА». Учебный прототип: курсы, сроки и цены условные.</p><p>Контакт-центр: 536-45-00</p></div></div></footer>
+  <!-- Главная шапка в стиле Яндекс Практикум -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand-logo" href="index.html">
+          <img src="logo.png" alt="ОМА" style="height:38px;width:auto;border-radius:4px">
+          <span class="brand-badge">АКАДЕМИЯ</span>
+          <span class="brand-sub">Каталог</span>
+        </a>
 
+        <nav class="main-nav">
+          <a class="nav-link" href="index.html">Главная</a>
+          <a class="nav-link active" href="courses.html">
+            Каталог курсов
+            <span class="nav-badge-pill">3 уровня</span>
+          </a>
+          <a class="nav-link" href="learn.html?id=1">Тренажер (Практика)</a>
+          <a class="nav-link" href="gallery.html">Галерея До/После</a>
+          <a class="nav-link" href="cabinet.html">Личный кабинет</a>
+        </nav>
 
-<script src="config.js"></script>
-<script src="data.js"></script>
-<script src="auth.js"></script>
-<script src="main.js"></script>
+        <div class="header-actions">
+          <div id="header-points-slot"></div>
+          <div id="header-auth-slot"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Заголовок и фильтры в стиле Яндекс Практикум -->
+  <main style="padding: 40px 0 60px">
+    <div class="container">
+      <div style="font-size:13px;color:var(--text-muted);margin-bottom:16px">
+        <a href="index.html" style="color:var(--text-muted)">Главная</a> / <span>Каталог программ</span>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px;flex-wrap:wrap;gap:20px">
+        <div>
+          <h1 style="font-size:32px;font-weight:800;letter-spacing:-0.5px;margin-bottom:8px">Программы обучения и мастер-классы</h1>
+          <p style="color:var(--text-secondary);font-size:16px">Обучение на реальном ассортименте ОМА. Покупайте комплекты материалов в 1 клик.</p>
+        </div>
+
+        <!-- Переключатель розница / B2B опт -->
+        <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);padding:4px;display:flex;gap:4px">
+          <button id="filter-pricing-retail" class="btn" style="background:var(--oma-orange);color:#fff;padding:8px 16px;font-size:13px;font-weight:600">Розничные цены (B2C)</button>
+          <button id="filter-pricing-wholesale" class="btn" style="background:transparent;color:var(--text-main);padding:8px 16px;font-size:13px;font-weight:600">Оптовые цены (B2B)</button>
+        </div>
+      </div>
+
+      <!-- Вкладки 3 направлений аудитории в стиле Практикум -->
+      <div style="display:flex;gap:10px;margin-bottom:32px;overflow-x:auto;padding-bottom:4px">
+        <button class="btn aud-filter-btn active" data-aud="all" style="padding:10px 20px;border-radius:24px;border:1px solid var(--border);background:#0f172a;color:#fff;font-weight:600;cursor:pointer">Все программы</button>
+        <button class="btn aud-filter-btn" data-aud="teen" style="padding:10px 20px;border-radius:24px;border:1px solid var(--border);background:#fff;color:var(--text-main);font-weight:600;cursor:pointer">🛠️ Мастер-классы DIY (B2C)</button>
+        <button class="btn aud-filter-btn" data-aud="student" style="padding:10px 20px;border-radius:24px;border:1px solid var(--border);background:#fff;color:var(--text-main);font-weight:600;cursor:pointer">📐 Студенты (Профессия)</button>
+        <button class="btn aud-filter-btn" data-aud="pro" style="padding:10px 20px;border-radius:24px;border:1px solid var(--border);background:#fff;color:var(--text-main);font-weight:600;cursor:pointer">🏢 B2B Квалификация и бренды</button>
+      </div>
+
+      <!-- Панель поиска и сложности -->
+      <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:18px 24px;margin-bottom:36px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px;position:relative">
+          <input type="text" id="course-search-input" placeholder="Поиск по курсам, материалам (Ceresit, сосна, электрика)..." style="width:100%;padding:10px 16px;border:1px solid var(--border);border-radius:8px;font-size:14px">
+        </div>
+        <div style="display:flex;gap:12px;align-items:center">
+          <span style="font-size:13px;font-weight:600;color:var(--text-muted)">Сложность:</span>
+          <select id="diff-filter-select" style="padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:#fff">
+            <option value="all">Любая</option>
+            <option value="Легко">Легко</option>
+            <option value="Средне">Средне</option>
+            <option value="Сложно">Сложно</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Сетка карточек -->
+      <div class="courses-grid" id="catalog-courses-grid">
+        <!-- Генерируется скриптом -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Футер -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none;padding-top:0">
+        <div>© 1992–2026 ООО «ОМА». Образовательная платформа OMA ACADEMY.</div>
+        <a href="https://oma.by" style="color:#cbd5e1" target="_blank">Перейти в гипермаркет oma.by ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+  <script src="auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      var urlParams = new URLSearchParams(location.search);
+      var currentAud = urlParams.get('g') || 'all';
+      var currentDiff = 'all';
+      var searchQuery = '';
+      var isWholesale = false;
+
+      var allProjects = await window.OmaApp.data.getProjects();
+
+      var grid = document.getElementById('catalog-courses-grid');
+      var searchInput = document.getElementById('course-search-input');
+      var diffSelect = document.getElementById('diff-filter-select');
+      var audButtons = document.querySelectorAll('.aud-filter-btn');
+      var btnRetail = document.getElementById('filter-pricing-retail');
+      var btnWholesale = document.getElementById('filter-pricing-wholesale');
+
+      // Активируем кнопку аудитории из query param
+      audButtons.forEach(function (btn) {
+        if (btn.dataset.aud === currentAud) {
+          btn.style.background = '#0f172a';
+          btn.style.color = '#fff';
+        } else {
+          btn.style.background = '#fff';
+          btn.style.color = 'var(--text-main)';
+        }
+      });
+
+      function render() {
+        grid.innerHTML = '';
+        var filtered = allProjects.filter(function (p) {
+          if (currentAud !== 'all') {
+            if (currentAud === 'pro' && p.audience !== 'pro' && p.audience !== 'team') return false;
+            else if (currentAud !== 'pro' && p.audience !== currentAud) return false;
+          }
+          if (currentDiff !== 'all' && p.difficulty !== currentDiff) return false;
+          if (searchQuery) {
+            var full = (p.title + ' ' + p.description).toLowerCase();
+            if (full.indexOf(searchQuery.toLowerCase()) === -1) return false;
+          }
+          return true;
+        });
+
+        if (!filtered.length) {
+          grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;background:#fff;border-radius:16px;border:1px solid var(--border)">' +
+            '<div style="font-size:36px;margin-bottom:12px">🔍</div>' +
+            '<h3 style="font-size:18px;font-weight:700;margin-bottom:6px">Программы не найдены</h3>' +
+            '<p style="color:var(--text-muted);font-size:14px">Попробуйте изменить поисковый запрос или сбросить фильтры.</p>' +
+          '</div>';
+          return;
+        }
+
+        filtered.forEach(function (p) {
+          var audLabel = p.audience === 'teen' ? 'B2C Мастер-класс' : (p.audience === 'student' ? 'Студенты' : 'B2B Сертификация');
+          // Если включен оптовый режим, даем оптовую скидку 20%
+          var displayPrice = isWholesale ? (p.price * 0.8).toFixed(2) : p.price.toFixed(2);
+          var priceLabel = isWholesale ? 'Оптовая B2B смета' : 'Розничная смета материалов';
+
+          var card = document.createElement('div');
+          card.className = 'course-card';
+          card.innerHTML =
+            '<div class="course-cover" style="background-image:url(\'' + p.imageUrl + '\')">' +
+              '<span class="course-cover-badge">' + audLabel + '</span>' +
+              '<span class="course-points-tag">+' + p.pointsReward + ' баллов ОМА</span>' +
+            '</div>' +
+            '<div class="course-body">' +
+              '<div class="course-meta">' +
+                '<span class="meta-item">⏱ ' + p.durationMin + ' мин</span>' +
+                '<span class="meta-item">⚡ ' + p.difficulty + '</span>' +
+                '<span class="meta-item">📦 ' + (p.stepsCount || 3) + ' шага</span>' +
+              '</div>' +
+              '<h3 class="course-name">' + p.title + '</h3>' +
+              '<p class="course-desc">' + p.description + '</p>' +
+              '<div class="course-footer">' +
+                '<div class="price-block">' +
+                  '<div class="price-val">' + displayPrice + ' BYN</div>' +
+                  '<div class="price-sub">' + priceLabel + '</div>' +
+                '</div>' +
+                '<div class="card-actions">' +
+                  '<button class="btn-bom-kit" onclick="window.OmaApp.ui.openBomModal(' + p.id + ', ' + isWholesale + ')">🛒 Смета в 1 клик</button>' +
+                  '<button class="btn-learn" onclick="location.href=\'learn.html?id=' + p.id + '\'">Тренажер →</button>' +
+                '</div>' +
+              '</div>' +
+            '</div>';
+          grid.appendChild(card);
+        });
+      }
+
+      // Слушатели фильтров
+      audButtons.forEach(function (btn) {
+        btn.onclick = function () {
+          currentAud = btn.dataset.aud;
+          history.replaceState(null, '', 'courses.html?g=' + currentAud);
+          audButtons.forEach(function (b) {
+            b.style.background = '#fff';
+            b.style.color = 'var(--text-main)';
+          });
+          btn.style.background = '#0f172a';
+          btn.style.color = '#fff';
+          render();
+        };
+      });
+
+      diffSelect.onchange = function (e) {
+        currentDiff = e.target.value;
+        render();
+      };
+
+      searchInput.oninput = function (e) {
+        searchQuery = e.target.value;
+        render();
+      };
+
+      btnRetail.onclick = function () {
+        isWholesale = false;
+        btnRetail.style.background = 'var(--oma-orange)';
+        btnRetail.style.color = '#fff';
+        btnWholesale.style.background = 'transparent';
+        btnWholesale.style.color = 'var(--text-main)';
+        render();
+      };
+
+      btnWholesale.onclick = function () {
+        isWholesale = true;
+        btnWholesale.style.background = 'var(--oma-orange)';
+        btnWholesale.style.color = '#fff';
+        btnRetail.style.background = 'transparent';
+        btnRetail.style.color = 'var(--text-main)';
+        render();
+      };
+
+      render();
+    });
+  </script>
 </body>
 </html>
