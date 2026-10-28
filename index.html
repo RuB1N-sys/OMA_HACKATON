@@ -7,29 +7,36 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="apple-cinema.css">
 </head>
-<body style="background: #0A0B0E;">
+<body style="background-image: url('bg-blueprint.png'), linear-gradient(135deg, #F6F5F1 0%, #EDEDEB 50%, #697993 100%); background-size: cover; background-attachment: fixed; background-position: center; min-height: 100vh; color: #102344;">
 
-  <!-- ШАПКА ПЛАТФОРМЫ В ЦВЕТАХ ОМА С ПОДДЕРЖКОЙ АВТОРИЗАЦИИ И БАЛЛОВ -->
-  <header class="site-header" style="background: rgba(17, 19, 24, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+  <!-- ШАПКА ПЛАТФОРМЫ В ЦВЕТАХ ОМА С ПОДДЕРЖКОЙ АВТОРИЗАЦИИ И БАЛЛОВ (GLASSMORPHISM) -->
+  <header class="site-header" style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 4px 20px -2px rgba(16, 35, 68, 0.05);">
     <div class="container">
       <div class="header-inner">
-        <!-- Логотип: Оранжевый кружок О + Снежинка + Практикум ОМА -->
-        <a class="logo-practicum" href="index.html" style="color: #ffffff;">
-          <span class="logo-badge-circle">О</span>
-          <span class="logo-asterisk" style="color: #ffffff;">✱</span>
-          <span class="logo-brand-text">Практикум <span>ОМА</span></span>
+        <!-- Обновленный логотип OMA ACADEMY (из фото пользователя) -->
+        <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+          <div style="width: 44px; height: 44px; border-radius: 12px; background: #ffffff; border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 2px 10px rgba(16, 35, 68, 0.08); padding: 4px; display: flex; align-items: center; justify-content: center;">
+            <img src="logo-oma-academy.png" alt="OMA ACADEMY" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+          </div>
+          <div style="display: flex; flex-direction: column; line-height: 1.1;">
+            <div style="font-weight: 900; font-size: 20px; letter-spacing: -0.4px;">
+              <span style="color: #102344;">OMA</span> <span style="color: #F96621;">ACADEMY</span>
+            </div>
+            <span style="font-size: 11px; color: #64748b; font-weight: 600;">Практикум ремонта & сметы в 1 клик</span>
+          </div>
         </a>
 
-        <!-- Навигация верхнего меню -->
+        <!-- Навигация верхнего меню по 3 уровням -->
         <nav class="header-nav">
-          <a class="header-nav-link" href="gallery.html" style="color: #cbd5e1;">Блог & Галерея</a>
-          <a class="header-nav-link" href="cabinet.html?tab=b2b" style="color: #cbd5e1;">Компаниям (B2B)</a>
-          <a class="header-nav-link" href="#expertise" style="color: #cbd5e1;">Бренды & Экспертиза ▾</a>
-          <a class="header-nav-link" href="courses.html" style="color: #cbd5e1;">Все курсы ▾</a>
-          <a class="btn-header-catalog" href="courses.html" style="background: var(--oma-orange-vibrant); color: #fff;">В каталог</a>
+          <a class="header-nav-link" href="courses.html?g=teen" style="color: #334155; font-weight: 600;">Мастер-классы DIY</a>
+          <a class="header-nav-link" href="courses.html?g=student" style="color: #334155; font-weight: 600;">Студенты</a>
+          <a class="header-nav-link" href="cabinet.html?tab=b2b" style="color: #102344; font-weight: 800; background: rgba(16, 35, 68, 0.06); padding: 6px 12px; border-radius: 10px;">🏢 B2B Бригады</a>
+          <a class="header-nav-link" href="#expertise" style="color: #334155; font-weight: 600;">Бренды & Экспертиза ▾</a>
+          <a class="header-nav-link" href="gallery.html" style="color: #334155; font-weight: 600;">Галерея До/После</a>
+          <a class="btn-header-catalog" href="courses.html" style="background: #F96621; color: #fff; font-weight: 800; border-radius: 12px; box-shadow: 0 4px 12px rgba(249, 102, 33, 0.25);">В каталог</a>
         </nav>
 
-        <!-- Баллы ОМА и Профиль -->
+        <!-- Баллы ОМА и Профиль SSO -->
         <div class="header-user-slot">
           <div id="header-points-slot"></div>
           <div id="header-auth-slot"></div>
@@ -42,38 +49,41 @@
   <div id="oma-react-app"></div>
 
   <!-- Плавающий виджет слева внизу: Бесплатные мастер-классы -->
-  <div class="floating-workshop-card" onclick="window.OmaApp && window.OmaApp.ui && window.OmaApp.ui.openOnboardingModal()" style="background: rgba(17, 24, 39, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); color: #fff; z-index: 98;">
+  <div class="floating-workshop-card" onclick="window.OmaApp && window.OmaApp.ui && window.OmaApp.ui.openOnboardingModal()" style="background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.8); color: #102344; box-shadow: 0 10px 30px rgba(16, 35, 68, 0.12); z-index: 98;">
     <div class="workshop-avatars-row">
       <img class="workshop-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Мастер">
       <img class="workshop-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Технолог">
       <img class="workshop-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Эксперт">
     </div>
-    <div class="workshop-text" style="color: #fff;">
-      Бесплатные мастер-классы от экспертов ОМА ↗
+    <div class="workshop-text" style="color: #102344; font-weight: 700;">
+      Бесплатные мастер-классы от экспертов ОМА <span style="color: #F96621;">↗</span>
     </div>
   </div>
 
-  <!-- ФУТЕР -->
-  <footer class="site-footer" style="padding: 60px 0 100px; background: #07080A; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+  <!-- ФУТЕР В ЧИСТОМ СТИЛЕ CLEAN UI -->
+  <footer class="site-footer" style="padding: 60px 0 80px; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid rgba(255, 255, 255, 0.8);">
     <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:28px;margin-bottom:28px">
-        <div class="logo-practicum" style="color:#ffffff">
-          <span class="logo-badge-circle">О</span>
-          <span class="logo-asterisk" style="color:#ffffff">✱</span>
-          <span class="logo-brand-text">Практикум <span>ОМА</span></span>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-bottom:1px solid #e2e8f0;padding-bottom:28px;margin-bottom:28px">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: #fff; border: 1px solid #e2e8f0; padding: 3px; display: flex; align-items: center; justify-content: center;">
+            <img src="logo-oma-academy.png" alt="OMA ACADEMY" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+          </div>
+          <div style="font-weight: 900; font-size: 18px;">
+            <span style="color: #102344;">OMA</span> <span style="color: #F96621;">ACADEMY</span>
+          </div>
         </div>
-        <div style="display:flex;gap:24px;font-size:14px;color:#94a3b8">
-          <a href="courses.html">Все курсы</a>
-          <a href="learn.html?id=1">Тренажер</a>
-          <a href="gallery.html">Галерея До/После</a>
-          <a href="cabinet.html">Личный кабинет</a>
-          <a href="cabinet.html?tab=b2b" style="color:var(--oma-blue-titanium)">B2B Кабинет</a>
-          <a href="https://oma.by" target="_blank" style="color:#ffffff">Гипермаркет oma.by ↗</a>
+        <div style="display:flex;gap:24px;font-size:14px;color:#475569;font-weight:600">
+          <a href="courses.html" style="color: #102344;">Все курсы</a>
+          <a href="learn.html?id=1" style="color: #102344;">Тренажер</a>
+          <a href="gallery.html" style="color: #102344;">Галерея До/После</a>
+          <a href="cabinet.html" style="color: #102344;">Личный кабинет</a>
+          <a href="cabinet.html?tab=b2b" style="color: #F96621; font-weight: 800;">B2B Кабинет</a>
+          <a href="https://oma.by" target="_blank" style="color: #102344; font-weight: 700;">Гипермаркет oma.by ↗</a>
         </div>
       </div>
       <div style="font-size:13px;color:#64748b;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
-        <div>© 1992–2026 ООО «ОМА». Кинематографичная образовательная платформа Практикум ОМА.</div>
-        <div>Единый контакт-центр: <b>536-45-00</b> (A1, МТС, Life)</div>
+        <div>© 1992–2026 ООО «ОМА». Кинематографичная образовательная платформа OMA ACADEMY.</div>
+        <div>Единый контакт-центр: <b style="color: #102344;">536-45-00</b> (A1, МТС, Life)</div>
       </div>
     </div>
   </footer>

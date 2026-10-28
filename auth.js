@@ -111,38 +111,41 @@
     location.reload();
   }
 
-  // Модальное окно авторизации в дизайне Практикума
+  // Модальное окно авторизации в дизайне Практикума и Glassmorphism
   var dlg = document.createElement('div');
   dlg.id = 'auth-dialog-wrap';
   dlg.className = 'modal-overlay';
+  dlg.style.cssText = 'background: rgba(16, 35, 68, 0.55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);';
   dlg.innerHTML =
-    '<div class="modal-card" style="max-width:440px">' +
-      '<button class="modal-close-btn" id="close-auth-modal">×</button>' +
-      '<div style="text-align:center;margin-bottom:20px">' +
-        '<span class="brand-badge" style="margin-bottom:8px;display:inline-block">OMA.BY SSO</span>' +
-        '<h2 id="auth-title" style="font-size:22px;font-weight:800;margin-bottom:6px">Вход в OMA ACADEMY</h2>' +
-        '<p style="font-size:13px;color:var(--text-muted)">Единая авторизация с гипермаркетом oma.by и синхронизация бонусных баллов</p>' +
+    '<div class="modal-card" style="max-width:440px; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 24px; box-shadow: 0 25px 60px rgba(16, 35, 68, 0.2); padding: 32px;">' +
+      '<button class="modal-close-btn" id="close-auth-modal" style="top: 18px; right: 18px; width: 32px; height: 32px; border-radius: 50%; background: #f1f5f9; border: none; font-size: 18px; cursor: pointer; color: #64748b;">✕</button>' +
+      '<div style="text-align:center;margin-bottom:24px">' +
+        '<div style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:9999px;background:rgba(249,102,33,0.1);border:1px solid rgba(249,102,33,0.25);margin-bottom:12px">' +
+          '<span style="color:#F96621;font-weight:900;font-size:12px">⚡ OMA.BY SSO ID</span>' +
+        '</div>' +
+        '<h2 id="auth-title" style="font-size:22px;font-weight:900;color:#102344;margin-bottom:6px">Вход в OMA ACADEMY</h2>' +
+        '<p style="font-size:13px;color:#64748b;line-height:1.5">Единая авторизация с гипермаркетом oma.by и синхронизация бонусных баллов с дисконтной картой</p>' +
       '</div>' +
-      '<div style="display:flex;border-bottom:1px solid var(--border);margin-bottom:20px">' +
-        '<button type="button" id="tab-login" style="flex:1;padding:10px;border:none;background:none;font-weight:700;font-size:14px;cursor:pointer;border-bottom:2px solid var(--oma-orange);color:var(--oma-orange)">Вход</button>' +
-        '<button type="button" id="tab-reg" style="flex:1;padding:10px;border:none;background:none;font-weight:600;font-size:14px;cursor:pointer;border-bottom:2px solid transparent;color:var(--text-muted)">Регистрация</button>' +
+      '<div style="display:flex;border-bottom:1px solid #e2e8f0;margin-bottom:20px">' +
+        '<button type="button" id="tab-login" style="flex:1;padding:10px;border:none;background:none;font-weight:800;font-size:14px;cursor:pointer;border-bottom:2px solid #F96621;color:#F96621">Вход</button>' +
+        '<button type="button" id="tab-reg" style="flex:1;padding:10px;border:none;background:none;font-weight:600;font-size:14px;cursor:pointer;border-bottom:2px solid transparent;color:#64748b">Регистрация</button>' +
       '</div>' +
       '<form id="auth-form" novalidate>' +
         '<div id="field-name" style="margin-bottom:14px;display:none">' +
-          '<label style="display:block;font-size:12px;font-weight:600;margin-bottom:4px">Имя и фамилия</label>' +
-          '<input id="inp-name" type="text" placeholder="Александр Смирнов" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px">' +
+          '<label style="display:block;font-size:12px;font-weight:700;color:#102344;margin-bottom:4px">Имя и фамилия</label>' +
+          '<input id="inp-name" type="text" placeholder="Александр Смирнов" style="width:100%;padding:11px 14px;border:1px solid #cbd5e1;border-radius:12px;outline:none;font-size:14px">' +
         '</div>' +
         '<div style="margin-bottom:14px">' +
-          '<label style="display:block;font-size:12px;font-weight:600;margin-bottom:4px">Электронная почта (oma.by ID)</label>' +
-          '<input id="inp-email" type="email" placeholder="example@mail.by" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px" required>' +
+          '<label style="display:block;font-size:12px;font-weight:700;color:#102344;margin-bottom:4px">Электронная почта (oma.by ID)</label>' +
+          '<input id="inp-email" type="email" placeholder="example@mail.by" style="width:100%;padding:11px 14px;border:1px solid #cbd5e1;border-radius:12px;outline:none;font-size:14px" required>' +
         '</div>' +
         '<div style="margin-bottom:14px">' +
-          '<label style="display:block;font-size:12px;font-weight:600;margin-bottom:4px">Пароль</label>' +
-          '<input id="inp-pass" type="password" placeholder="••••••••" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px" required>' +
+          '<label style="display:block;font-size:12px;font-weight:700;color:#102344;margin-bottom:4px">Пароль</label>' +
+          '<input id="inp-pass" type="password" placeholder="••••••••" style="width:100%;padding:11px 14px;border:1px solid #cbd5e1;border-radius:12px;outline:none;font-size:14px" required>' +
         '</div>' +
         '<div id="field-aud" style="margin-bottom:14px;display:none">' +
-          '<label style="display:block;font-size:12px;font-weight:600;margin-bottom:4px">Категория аккаунта</label>' +
-          '<select id="inp-aud" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;background:#fff">' +
+          '<label style="display:block;font-size:12px;font-weight:700;color:#102344;margin-bottom:4px">Категория аккаунта</label>' +
+          '<select id="inp-aud" style="width:100%;padding:11px 14px;border:1px solid #cbd5e1;border-radius:12px;background:#fff;font-size:14px">' +
             '<option value="teen">B2C Покупатель (DIY мастер-классы)</option>' +
             '<option value="student">Студент (Специальное образование)</option>' +
             '<option value="pro">Профессионал / Мастер (B2B)</option>' +
@@ -150,9 +153,9 @@
           '</select>' +
         '</div>' +
         '<p id="auth-err-msg" style="color:#ef4444;font-size:13px;margin-bottom:12px"></p>' +
-        '<button type="submit" id="auth-submit-btn" class="btn-primary" style="width:100%;justify-content:center;margin-bottom:12px">Войти</button>' +
-        '<button type="button" id="auth-sso-btn" class="btn-secondary" style="width:100%;justify-content:center;color:var(--text-main);background:#f1f5f9;border-color:var(--border)">' +
-          'Войти через учетную запись oma.by' +
+        '<button type="submit" id="auth-submit-btn" class="btn-primary" style="width:100%;justify-content:center;margin-bottom:10px;padding:12px;background:#F96621;color:#fff;border-radius:12px;font-weight:800;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(249,102,33,0.25)">Войти</button>' +
+        '<button type="button" id="auth-sso-btn" class="btn-secondary" style="width:100%;justify-content:center;color:#fff;background:#102344;border:none;padding:12px;border-radius:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px">' +
+          '<span>🔑</span> Войти через учетную запись oma.by' +
         '</button>' +
       '</form>' +
     '</div>';
