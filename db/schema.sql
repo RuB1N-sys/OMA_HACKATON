@@ -202,7 +202,7 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO projects (id, title, description, audience, category, difficulty, duration_min, points_reward, price, image_url)
 VALUES
   (3, 'Базовый электромонтаж квартиры: от щитка до розеток', 'Профессиональный базовый курс для начинающих электриков на базе кабельной продукции и автоматики ОМА.', 'student', 'course', 'medium', 180, 300, 150.00, 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80'),
-  (4, 'Современный дизайн интерьера: раскладка плитки и зонирование', 'Практический курс по укладке керамогранита и сочетанию отделочных материалов из ассортимента ОМА.', 'student', 'course', 'medium', 240, 400, 199.00, 'https://images.unsplash.com/photo-1502005229762-ee1b2da97a06?auto=format&fit=crop&w=800&q=80')
+  (4, 'Современный дизайн интерьера: раскладка плитки и зонирование', 'Практический курс по укладке керамогранита и сочетанию отделочных материалов из ассортимента ОМА.', 'student', 'course', 'medium', 240, 400, 199.00, 'img/tile-design.jpg')
 ON CONFLICT (id) DO NOTHING;
 
 -- 3. B2B / Профессионалы (Повышение квалификации, работа со сложными материалами)
