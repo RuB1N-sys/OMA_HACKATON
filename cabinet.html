@@ -6,8 +6,23 @@
   <title>Личный кабинет — Практикум ОМА</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="apple-cinema.css">
+  <style>
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .badge-new { background: rgba(59, 130, 246, 0.12); color: #2563eb; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .badge-confirmed { background: rgba(16, 185, 129, 0.12); color: #059669; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-attended { background: rgba(16, 35, 68, 0.1); color: #102344; border: 1px solid rgba(16, 35, 68, 0.2); }
+    .badge-cancelled { background: rgba(148, 163, 184, 0.2); color: #64748b; border: 1px solid rgba(148, 163, 184, 0.3); text-decoration: line-through; }
+  </style>
 </head>
-<body>
+<body style="background-image: url('bg-blueprint.png'), linear-gradient(135deg, #F6F5F1 0%, #EDEDEB 50%, #697993 100%); background-size: cover; background-attachment: fixed; min-height: 100vh; color: #102344;">
 
   <!-- Главная шапка OMA ACADEMY с эффектом Glassmorphism -->
   <header class="site-header" style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 4px 20px -2px rgba(16, 35, 68, 0.05);">
@@ -21,20 +36,22 @@
             <div style="font-weight: 900; font-size: 20px; letter-spacing: -0.4px;">
               <span style="color: #102344;">OMA</span> <span style="color: #F96621;">ACADEMY</span>
             </div>
-            <span style="font-size: 11px; color: #64748b; font-weight: 600;">Личный кабинет & B2B Управление</span>
+            <span style="font-size: 11px; color: #64748b; font-weight: 600;">Личный кабинет & Расписание</span>
           </div>
         </a>
 
         <nav class="header-nav">
-          <a class="header-nav-link" href="courses.html?g=teen" style="color: #334155; font-weight: 600;">Мастер-классы DIY</a>
-          <a class="header-nav-link" href="courses.html?g=student" style="color: #334155; font-weight: 600;">Студенты</a>
-          <a class="header-nav-link" href="cabinet.html?tab=b2b" style="color: #102344; font-weight: 800; background: rgba(16, 35, 68, 0.06); padding: 6px 12px; border-radius: 10px;">🏢 B2B Бригады</a>
-          <a class="header-nav-link" href="gallery.html" style="color: #334155; font-weight: 600;">Галерея До/После</a>
-          <a class="header-nav-link" href="courses.html" style="color: #334155; font-weight: 600;">Все курсы ▾</a>
-          <a class="btn-header-catalog" href="courses.html" style="background: #F96621; color: #fff; font-weight: 800; border-radius: 12px; box-shadow: 0 4px 12px rgba(249, 102, 33, 0.25);">В каталог</a>
+          <a class="header-nav-link" href="courses.html?g=teen">Мастер-классы</a>
+          <a class="header-nav-link" href="courses.html?g=student">Студенты</a>
+          <a class="header-nav-link header-nav-badge" href="cabinet.html?tab=b2b">🏢 B2B Бригады</a>
+          <a class="header-nav-link" href="corporate.html">Корпоративное</a>
+          <a class="header-nav-link" href="gallery.html">Галерея</a>
+          <a class="header-nav-link header-nav-admin" href="admin.html">⚙️ Админка</a>
+          <a class="btn-header-catalog" href="courses.html">В каталог</a>
         </nav>
 
         <div class="header-user-slot">
+          <div id="header-notify-slot"></div>
           <div id="header-points-slot"></div>
           <div id="header-auth-slot"></div>
         </div>
@@ -45,20 +62,23 @@
   <main style="padding: 36px 0 60px">
     <div class="container">
       <!-- Баннер профиля пользователя -->
-      <div style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;box-shadow:var(--shadow-sm)">
+      <div style="background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.8);border-radius:var(--radius-lg);padding:28px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;box-shadow:var(--shadow-sm)">
         <div style="display:flex;align-items:center;gap:18px">
-          <div class="logo-badge-circle" style="width:56px;height:56px;font-size:22px" id="cab-avatar">О</div>
+          <div class="logo-badge-circle" style="width:56px;height:56px;font-size:22px;background:#102344;color:#fff;" id="cab-avatar">О</div>
           <div>
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-              <h1 style="font-size:22px;font-weight:800;margin:0" id="cab-user-name">Пользователь ОМА</h1>
+              <h1 style="font-size:22px;font-weight:800;margin:0;color:#102344" id="cab-user-name">Пользователь ОМА</h1>
               <span class="hero-discount-pill" style="position:static" id="cab-user-badge">Студент</span>
             </div>
             <div style="font-size:14px;color:var(--text-muted)" id="cab-user-email">user@oma.by</div>
           </div>
         </div>
-        <div style="display:flex;gap:12px;align-items:center">
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
           <a href="courses.html" class="btn-primary" style="padding:10px 20px;font-size:14px">
             + Записаться на курс
+          </a>
+          <a href="admin.html" class="btn" style="background:#102344;color:#fff;padding:10px 16px;border-radius:var(--radius-sm);font-weight:700;font-size:13px;text-decoration:none;">
+            ⚙️ Админ-панель
           </a>
           <button id="cab-logout-btn" class="btn" style="background:#f1f5f9;color:var(--text-secondary);padding:10px 18px;border:1px solid var(--border);border-radius:var(--radius-sm);font-weight:600">
             Выйти
@@ -67,21 +87,27 @@
       </div>
 
       <!-- Вкладки личного кабинета -->
-      <div style="background:#ffffff;border-bottom:1px solid var(--border);margin-bottom:32px">
-        <div style="display:flex;gap:8px;overflow-x:auto">
-          <button class="tab-btn active" data-tab="learning" style="padding:14px 20px;font-weight:700;cursor:pointer;border:none;background:none;border-bottom:3px solid var(--oma-orange);color:var(--oma-orange)">
+      <div style="background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.7);border-radius:16px;padding:6px;margin-bottom:32px">
+        <div style="display:flex;gap:6px;overflow-x:auto">
+          <button class="tab-btn active" data-tab="learning" style="padding:12px 18px;font-weight:700;cursor:pointer;border:none;background:none;border-bottom:3px solid var(--oma-orange);color:var(--oma-orange)">
             <span>📚</span> Мое обучение
           </button>
-          <button class="tab-btn" data-tab="points" style="padding:14px 20px;font-weight:600;cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;color:var(--text-muted)">
+          <button class="tab-btn" data-tab="enrollments" style="padding:12px 18px;font-weight:600;cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;color:var(--text-muted)">
+            <span>📝</span> Мои записи и статусы
+          </button>
+          <button class="tab-btn" data-tab="schedule" style="padding:12px 18px;font-weight:600;cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;color:var(--text-muted)">
+            <span>📅</span> Мое расписание
+          </button>
+          <button class="tab-btn" data-tab="points" style="padding:12px 18px;font-weight:600;cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;color:var(--text-muted)">
             <span>⭐</span> Бонусы и карта ОМА
           </button>
-          <button class="tab-btn" data-tab="certificates" style="padding:14px 20px;font-weight:600;cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;color:var(--text-muted)">
+          <button class="tab-btn" data-tab="certificates" style="padding:12px 18px;font-weight:600;cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;color:var(--text-muted)">
             <span>🎓</span> Сертификаты
           </button>
-          <button class="tab-btn" data-tab="achievements" style="padding:14px 20px;font-weight:600;cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;color:var(--text-muted)">
+          <button class="tab-btn" data-tab="achievements" style="padding:12px 18px;font-weight:600;cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;color:var(--text-muted)">
             <span>🏆</span> Достижения
           </button>
-          <button class="tab-btn" data-tab="b2b" id="tab-btn-b2b" style="padding:14px 20px;font-weight:600;cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;color:var(--text-muted)">
+          <button class="tab-btn" data-tab="b2b" id="tab-btn-b2b" style="padding:12px 18px;font-weight:600;cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;color:var(--text-muted)">
             <span>🏢</span> Кабинет Бригадира (B2B)
           </button>
         </div>
@@ -89,49 +115,78 @@
 
       <!-- ВКЛАДКА 1: МОЕ ОБУЧЕНИЕ -->
       <div id="tab-learning" class="tab-content active" style="display:block">
-        <h2 style="font-size:20px;font-weight:800;margin-bottom:16px">Текущие программы в процессе</h2>
+        <h2 style="font-size:20px;font-weight:800;margin-bottom:16px;color:#102344">Текущие программы в процессе</h2>
         <div style="display:grid;grid-template-columns:1fr;gap:18px;margin-bottom:36px">
           <!-- Активная карточка 1 -->
-          <div style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;box-shadow:var(--shadow-sm)">
+          <div style="background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.8);border-radius:var(--radius-md);padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;box-shadow:var(--shadow-sm)">
             <div style="flex:1;min-width:280px">
               <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
                 <span class="hero-discount-pill" style="position:static;font-size:11px">B2C Мастер-класс</span>
                 <span style="font-size:13px;color:var(--text-muted)">Дедлайн: 15 ноября</span>
               </div>
-              <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Стильная настенная полка в стиле Лофт своими руками</h3>
+              <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;color:#102344">Стильная настенная полка в стиле Лофт своими руками</h3>
               <div class="progress-bar-container" style="max-width:400px;margin-bottom:6px">
                 <div class="progress-bar-fill" style="width:66%"></div>
               </div>
               <div style="font-size:12px;color:var(--text-muted);font-weight:600">Пройдено 2 из 3 уроков (66%)</div>
             </div>
-            <div style="display:flex;gap:10px">
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
               <button class="btn-bom-kit" onclick="window.OmaApp.ui.openBomModal(1)">🛒 Смета набора</button>
               <a href="learn.html?id=1" class="btn-primary" style="padding:10px 22px;font-size:14px">Продолжить урок →</a>
             </div>
           </div>
 
           <!-- Активная карточка 2 -->
-          <div style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;box-shadow:var(--shadow-sm)">
+          <div style="background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.8);border-radius:var(--radius-md);padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;box-shadow:var(--shadow-sm)">
             <div style="flex:1;min-width:280px">
               <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
                 <span class="hero-discount-pill" style="position:static;font-size:11px;background:#2563eb">B2B Квалификация Ceresit</span>
                 <span style="font-size:13px;color:var(--text-muted)">Назначено бригадиром</span>
               </div>
-              <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Монтаж крупноформатного керамогранита с Ceresit & Litokol</h3>
+              <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;color:#102344">Монтаж крупноформатного керамогранита с Ceresit & Litokol</h3>
               <div class="progress-bar-container" style="max-width:400px;margin-bottom:6px">
                 <div class="progress-bar-fill" style="width:33%"></div>
               </div>
               <div style="font-size:12px;color:var(--text-muted);font-weight:600">Пройден 1 из 3 уроков (33%)</div>
             </div>
-            <div style="display:flex;gap:10px">
-              <button class="btn-bom-kit" onclick="window.OmaApp.ui.openBomModal(5, true)">🛒 Оптовая смета</button>
-              <a href="learn.html?id=5" class="btn-primary" style="padding:10px 22px;font-size:14px">Продолжить урок →</a>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn-bom-kit" onclick="window.OmaApp.ui.openBomModal(3, true)">🛒 Оптовая смета</button>
+              <a href="learn.html?id=3" class="btn-primary" style="padding:10px 22px;font-size:14px">Продолжить урок →</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ВКЛАДКА 2: БОНУСЫ И КАРТА ОМА -->
+      <!-- ВКЛАДКА: МОИ ЗАПИСИ И СТАТУСЫ (НОВОЕ ПО ТЗ) -->
+      <div id="tab-enrollments" class="tab-content" style="display:none">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:14px">
+          <div>
+            <h2 style="font-size:20px;font-weight:800;color:#102344;margin:0">Мои заявки на курсы и статус</h2>
+            <p style="font-size:13px;color:var(--text-muted);margin:4px 0 0">Статусы: Новая → Подтверждена → Посещена. Возможность отменить запись в 1 клик.</p>
+          </div>
+          <a href="courses.html" class="btn-primary" style="padding:10px 18px;font-size:13px">
+            + Записаться на другой курс
+          </a>
+        </div>
+
+        <div id="user-enrollments-container" style="display:flex;flex-direction:column;gap:16px;margin-bottom:36px">
+          <!-- Заполняется динамически JS -->
+        </div>
+      </div>
+
+      <!-- ВКЛАДКА: МОЕ РАСПИСАНИЕ (НОВОЕ ПО ТЗ) -->
+      <div id="tab-schedule" class="tab-content" style="display:none">
+        <div style="margin-bottom:24px">
+          <h2 style="font-size:20px;font-weight:800;color:#102344;margin:0">Календарь и расписание моих занятий</h2>
+          <p style="font-size:13px;color:var(--text-muted);margin:4px 0 0">Точные даты, время начала и адреса учебных центров сети ОМА</p>
+        </div>
+
+        <div id="user-schedule-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-bottom:36px">
+          <!-- Заполняется динамически JS -->
+        </div>
+      </div>
+
+      <!-- ВКЛАДКА: БОНУСЫ И КАРТА ОМА -->
       <div id="tab-points" class="tab-content" style="display:none">
         <div class="promo-green-banner" style="background:#111827;grid-template-columns:1fr 1fr;margin-bottom:32px">
           <div>
@@ -155,8 +210,8 @@
           </div>
         </div>
 
-        <div style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;margin-bottom:32px">
-          <h3 style="font-size:18px;font-weight:700;margin-bottom:12px">Монетизация баллов: списание на скидку в гипермаркетах ОМА</h3>
+        <div style="background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.8);border-radius:var(--radius-md);padding:24px;margin-bottom:32px">
+          <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;color:#102344">Монетизация баллов: списание на скидку в гипермаркетах ОМА</h3>
           <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
             <input type="number" id="inp-spend-amount" placeholder="Кол-во баллов (например 50)" style="width:240px;padding:10px 14px;border:1px solid var(--border);border-radius:8px">
             <button id="btn-spend-submit" class="btn-primary" style="padding:10px 20px">Сформировать скидочный сертификат</button>
@@ -164,61 +219,61 @@
           </div>
         </div>
 
-        <h3 style="font-size:18px;font-weight:700;margin-bottom:14px">История операций с бонусами</h3>
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:14px;color:#102344">История операций с бонусами</h3>
         <table class="materials-table">
           <thead>
             <tr><th>Дата</th><th>Операция</th><th>Баллы</th><th>Статус</th></tr>
           </thead>
           <tbody>
-            <tr><td>26.10.2026</td><td>Завершение мастер-класса: Полка Лофт</td><td style="color:var(--practicum-green);font-weight:700">+100</td><td>Зачислено</td></tr>
-            <tr><td>24.10.2026</td><td>Бонус за привязку дисконтной карты ОМА</td><td style="color:var(--practicum-green);font-weight:700">+50</td><td>Зачислено</td></tr>
-            <tr><td>20.10.2026</td><td>Успешная сертификация по электромонтажу</td><td style="color:var(--practicum-green);font-weight:700">+300</td><td>Зачислено</td></tr>
+            <tr><td>26.10.2026</td><td>Завершение мастер-класса: Полка Лофт</td><td style="color:#059669;font-weight:700">+100</td><td>Зачислено</td></tr>
+            <tr><td>24.10.2026</td><td>Бонус за привязку дисконтной карты ОМА</td><td style="color:#059669;font-weight:700">+50</td><td>Зачислено</td></tr>
+            <tr><td>20.10.2026</td><td>Успешная сертификация по электромонтажу</td><td style="color:#059669;font-weight:700">+300</td><td>Зачислено</td></tr>
           </tbody>
         </table>
       </div>
 
-      <!-- ВКЛАДКА 3: СЕРТИФИКАТЫ -->
+      <!-- ВКЛАДКА: СЕРТИФИКАТЫ -->
       <div id="tab-certificates" class="tab-content" style="display:none">
-        <h2 style="font-size:20px;font-weight:800;margin-bottom:16px">Мои официальные сертификаты ОМА</h2>
+        <h2 style="font-size:20px;font-weight:800;margin-bottom:16px;color:#102344">Мои официальные сертификаты ОМА</h2>
         <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(360px, 1fr));gap:24px">
-          <div style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;box-shadow:var(--shadow-sm);border-top:4px solid var(--practicum-green)">
+          <div style="background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.8);border-radius:var(--radius-md);padding:24px;box-shadow:var(--shadow-sm);border-top:4px solid #059669">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-              <span style="font-size:12px;font-weight:700;color:var(--practicum-green)">ОФИЦИАЛЬНЫЙ СЕРТИФИКАТ</span>
+              <span style="font-size:12px;font-weight:700;color:#059669">ОФИЦИАЛЬНЫЙ СЕРТИФИКАТ</span>
               <span style="font-size:12px;color:var(--text-muted)">25.10.2026</span>
             </div>
-            <h3 style="font-size:17px;font-weight:700;margin-bottom:8px">Монтаж крупноформатного керамогранита</h3>
+            <h3 style="font-size:17px;font-weight:700;margin-bottom:8px;color:#102344">Монтаж крупноформатного керамогранита</h3>
             <div style="font-size:13px;color:var(--text-muted);margin-bottom:16px">
-              Номер: <b style="font-family:'JetBrains Mono',monospace;color:var(--text-main)">OMA-2026-881920</b><br>
+              Номер: <b style="font-family:'JetBrains Mono',monospace;color:#102344">OMA-2026-881920</b><br>
               Партнер: Ceresit & Litokol
             </div>
-            <a href="http://localhost:8080/api/certificates/1/pdf" target="_blank" class="btn-primary" style="width:100%;justify-content:center;padding:10px">
+            <button onclick="alert('Скачивание официального сертификата OMA-2026-881920.pdf...')" class="btn-primary" style="width:100%;justify-content:center;padding:10px">
               📄 Скачать официальный PDF
-            </a>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- ВКЛАДКА 4: ДОСТИЖЕНИЯ -->
+      <!-- ВКЛАДКА: ДОСТИЖЕНИЯ -->
       <div id="tab-achievements" class="tab-content" style="display:none">
-        <h2 style="font-size:20px;font-weight:800;margin-bottom:16px">Цифровые награды и достижения</h2>
+        <h2 style="font-size:20px;font-weight:800;margin-bottom:16px;color:#102344">Цифровые награды и достижения</h2>
         <div class="courses-grid" id="cab-achievements-container" style="grid-template-columns:repeat(auto-fill, minmax(220px, 1fr))"></div>
       </div>
 
-      <!-- ВКЛАДКА 5: B2B КАБИНЕТ БРИГАДИРА -->
+      <!-- ВКЛАДКА: B2B КАБИНЕТ БРИГАДИРА -->
       <div id="tab-b2b" class="tab-content" style="display:none">
         <div style="background:#ffffff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-sm)">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:16px">
             <div>
               <span class="hero-discount-pill" style="position:static;display:inline-block;margin-bottom:6px">B2B УПРАВЛЕНИЕ</span>
-              <h2 style="font-size:22px;font-weight:800;margin:0">ООО «СтройМастер Минск»</h2>
+              <h2 style="font-size:22px;font-weight:800;margin:0;color:#102344">ООО «СтройМастер Минск»</h2>
               <div style="font-size:13px;color:var(--text-muted)">Бригадир: Дмитрий Ковалев • 4 сертифицированных мастера</div>
             </div>
-            <button class="btn-primary" style="padding:10px 18px;font-size:13px">
+            <button class="btn-primary" style="padding:10px 18px;font-size:13px" onclick="alert('Форма добавления сотрудника')">
               + Добавить мастера в бригаду
             </button>
           </div>
 
-          <h3 style="font-size:16px;font-weight:700;margin-bottom:14px">Мастера строительной бригады</h3>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:14px;color:#102344">Мастера строительной бригады</h3>
           <table class="materials-table" style="margin-bottom:32px">
             <thead>
               <tr><th>Сотрудник</th><th>Email</th><th>Роль</th><th>Квалификация</th></tr>
@@ -230,7 +285,7 @@
             </tbody>
           </table>
 
-          <h3 style="font-size:16px;font-weight:700;margin-bottom:14px">Контроль прохождения курсов и сертификации</h3>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:14px;color:#102344">Контроль прохождения курсов и сертификации</h3>
           <table class="materials-table">
             <thead>
               <tr><th>Сотрудник</th><th>Назначенный курс</th><th>Прогресс</th><th>Дедлайн</th><th>Статус / Документ</th></tr>
@@ -241,13 +296,13 @@
                 <td>Монтаж керамогранита Ceresit CM 17</td>
                 <td style="min-width: 140px;">
                   <div class="progress-bar-container" style="margin-bottom: 2px;">
-                    <div class="progress-bar-fill" style="width: 100%; background: var(--oma-emerald);"></div>
+                    <div class="progress-bar-fill" style="width: 100%; background: #059669;"></div>
                   </div>
-                  <span style="font-size: 11px; color: var(--oma-emerald); font-weight: 700;">100% (3 из 3 шагов)</span>
+                  <span style="font-size: 11px; color: #059669; font-weight: 700;">100% (3 из 3 шагов)</span>
                 </td>
                 <td>15.11.2026</td>
                 <td>
-                  <button class="btn" style="background: rgba(16, 185, 129, 0.12); color: var(--oma-emerald); border: 1px solid var(--oma-emerald); padding: 6px 14px; border-radius: 8px; font-weight: 700; font-size: 12px; cursor: pointer;" onclick="openCabCertModal('Иван Петров')">
+                  <button class="btn" style="background: rgba(16, 185, 129, 0.12); color: #059669; border: 1px solid #059669; padding: 6px 14px; border-radius: 8px; font-weight: 700; font-size: 12px; cursor: pointer;" onclick="openCabCertModal('Иван Петров')">
                     🎉 Выдать PDF-диплом
                   </button>
                 </td>
@@ -257,9 +312,9 @@
                 <td>Энергоэффективные фасады Knauf</td>
                 <td style="min-width: 140px;">
                   <div class="progress-bar-container" style="margin-bottom: 2px;">
-                    <div class="progress-bar-fill" style="width: 50%; background: var(--oma-orange-vibrant);"></div>
+                    <div class="progress-bar-fill" style="width: 50%; background: #F96621;"></div>
                   </div>
-                  <span style="font-size: 11px; color: var(--oma-orange-vibrant); font-weight: 700;">50% (2 из 4 шагов)</span>
+                  <span style="font-size: 11px; color: #F96621; font-weight: 700;">50% (2 из 4 шагов)</span>
                 </td>
                 <td>30.11.2026</td>
                 <td>
@@ -276,9 +331,20 @@
     </div>
   </main>
 
+  <!-- Футер -->
+  <footer class="site-footer">
+    <div class="container">
+      <div style="font-size:13px;color:#94a3b8;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+        <div>© 1992–2026 ООО «ОМА». Образовательная платформа OMA ACADEMY.</div>
+        <a href="https://oma.by" style="color:#ffffff" target="_blank">Перейти в гипермаркет oma.by ↗</a>
+      </div>
+    </div>
+  </footer>
+
   <script src="config.js"></script>
   <script src="app.js"></script>
   <script src="auth.js"></script>
+  <script src="notifications.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', async function () {
       var urlParams = new URLSearchParams(location.search);
@@ -317,6 +383,9 @@
           targetBtn.style.color = 'var(--oma-orange)';
         }
         if (targetContent) targetContent.style.display = 'block';
+
+        if (tId === 'enrollments') renderUserEnrollments();
+        if (tId === 'schedule') renderUserSchedule();
       }
 
       tabBtns.forEach(function (btn) {
@@ -329,6 +398,7 @@
 
       if (tabParam) switchTab(tabParam);
 
+      // Загрузка достижений
       var achievements = await window.OmaApp.data.getAchievements();
       var achContainer = document.getElementById('cab-achievements-container');
       if (achContainer) {
@@ -340,13 +410,14 @@
             '<div style="font-size:36px;margin-bottom:8px">' + (a.iconUrl || '🏆') + '</div>' +
             '<div style="font-weight:700;font-size:15px;margin-bottom:6px">' + a.name + '</div>' +
             '<div style="font-size:12px;color:var(--text-muted)">' + a.description + '</div>' +
-            '<div style="margin-top:10px;font-size:11px;font-weight:700;color:' + (a.earned ? 'var(--practicum-green)' : 'var(--text-muted)') + '">' +
+            '<div style="margin-top:10px;font-size:11px;font-weight:700;color:' + (a.earned ? '#059669' : 'var(--text-muted)') + '">' +
               (a.earned ? '✓ ПОЛУЧЕНО' : 'В процессе') +
             '</div>';
           achContainer.appendChild(el);
         });
       }
 
+      // Синхронизация дисконтной карты
       document.getElementById('cab-sync-card-btn').onclick = async function () {
         var cardVal = document.getElementById('cab-card-input').value.trim();
         if (!cardVal) { alert('Введите номер дисконтной карты ОМА'); return; }
@@ -355,14 +426,140 @@
         document.getElementById('cab-card-status').textContent = '✓ Дисконтная карта ' + cardVal + ' успешно привязана (+50 баллов)!';
       };
 
+      // Списание бонусов
       document.getElementById('btn-spend-submit').onclick = function () {
         var amt = parseInt(document.getElementById('inp-spend-amount').value, 10);
         var msg = document.getElementById('spend-result-msg');
         if (!amt || amt <= 0) { msg.textContent = 'Укажите количество баллов'; msg.style.color = '#ef4444'; return; }
         msg.textContent = '✓ Успешно списано ' + amt + ' баллов. Скидка на заказ в ОМА активирована!';
-        msg.style.color = 'var(--practicum-green)';
+        msg.style.color = '#059669';
         var current = parseInt(document.getElementById('cab-total-points').textContent, 10);
         document.getElementById('cab-total-points').textContent = Math.max(0, current - amt) + ' ⭐';
+      };
+
+      // РЕНДЕРИНГ ЗАЯВОК УЧАСТНИКА
+      function getUserEnrollmentsList() {
+        var saved = localStorage.getItem('oma_enrollments');
+        if (saved) return JSON.parse(saved);
+
+        // Fallback дефолтные заявки
+        return [
+          {
+            id: 'enr_1',
+            courseTitle: 'Монтаж крупноформатного керамогранита с Ceresit CM 17',
+            sessionDate: '08.11.2026',
+            sessionTime: '10:00 – 14:00',
+            sessionLocation: 'Учебный центр Ceresit & ОМА',
+            status: 'confirmed',
+            enrolledAt: '2026-10-26T10:00:00Z'
+          },
+          {
+            id: 'enr_2',
+            courseTitle: 'Стильная настенная полка в стиле Лофт своими руками',
+            sessionDate: '05.11.2026',
+            sessionTime: '10:00 – 12:00',
+            sessionLocation: 'Учебный центр ОМА, пр. Партизанский 183',
+            status: 'new',
+            enrolledAt: '2026-10-28T09:30:00Z'
+          }
+        ];
+      }
+
+      window.renderUserEnrollments = function() {
+        var list = getUserEnrollmentsList();
+        var container = document.getElementById('user-enrollments-container');
+        container.innerHTML = '';
+
+        if (!list.length) {
+          container.innerHTML = '<div style="background:#fff;border-radius:16px;padding:40px;text-align:center;border:1px solid var(--border);color:var(--text-muted);">' +
+            '<div style="font-size:36px;margin-bottom:8px">📝</div>' +
+            '<div style="font-weight:700;font-size:16px;color:#102344;margin-bottom:4px">У вас пока нет активных записей</div>' +
+            '<p style="font-size:14px;margin-bottom:16px">Выберите курс в каталоге и запишитесь на удобную дату.</p>' +
+            '<a href="courses.html" class="btn-primary" style="display:inline-flex;padding:10px 20px">Перейти в каталог →</a>' +
+          '</div>';
+          return;
+        }
+
+        list.forEach(function(item) {
+          var statusMap = {
+            'new': { label: '🟡 Заявка новая (на проверке)', class: 'badge-new' },
+            'confirmed': { label: '🟢 Подтверждена администратором', class: 'badge-confirmed' },
+            'attended': { label: '🔵 Посещение пройдено', class: 'badge-attended' },
+            'cancelled': { label: '⚪ Запись отменена', class: 'badge-cancelled' }
+          };
+          var st = statusMap[item.status] || { label: item.status, class: 'badge-new' };
+
+          var card = document.createElement('div');
+          card.style.cssText = 'background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.8);border-radius:18px;padding:24px;box-shadow:var(--shadow-sm);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;';
+          card.innerHTML = [
+            '<div style="flex:1;min-width:280px">',
+              '<div style="margin-bottom:8px"><span class="status-badge ' + st.class + '">' + st.label + '</span></div>',
+              '<h3 style="font-size:18px;font-weight:800;color:#102344;margin-bottom:8px">' + item.courseTitle + '</h3>',
+              '<div style="font-size:13px;color:var(--text-secondary);display:flex;gap:16px;flex-wrap:wrap">',
+                '<span>📅 <b>' + (item.sessionDate || 'Дата уточняется') + '</b></span>',
+                '<span>🕐 ' + (item.sessionTime || 'Время не указано') + '</span>',
+                '<span>📍 ' + (item.sessionLocation || 'г. Минск') + '</span>',
+              '</div>',
+            '</div>',
+            '<div style="display:flex;gap:10px;align-items:center">',
+              item.status !== 'cancelled' ? '<button onclick="cancelEnrollment(\'' + item.id + '\')" class="btn" style="background:#fef2f2;color:#dc2626;border:1px solid #fecaca;padding:9px 16px;border-radius:10px;font-weight:700;font-size:13px;cursor:pointer;">Отменить запись</button>' : '<span style="color:#94a3b8;font-size:13px;">Отменено</span>',
+              '<a href="course-detail.html?id=' + (item.courseId || 1) + '" class="btn" style="background:rgba(16,35,68,0.06);color:#102344;padding:9px 16px;border-radius:10px;font-weight:700;font-size:13px;text-decoration:none;">О курсе →</a>',
+            '</div>'
+          ].join('');
+          container.appendChild(card);
+        });
+      };
+
+      window.cancelEnrollment = function(id) {
+        if (!confirm('Вы действительно хотите отменить запись на этот курс?')) return;
+        var list = getUserEnrollmentsList();
+        var item = list.find(function(e) { return e.id === id; });
+        if (item) {
+          item.status = 'cancelled';
+          localStorage.setItem('oma_enrollments', JSON.stringify(list));
+          renderUserEnrollments();
+
+          if (window.OmaNotifications) {
+            window.OmaNotifications.add('warning', 'Запись отменена',
+              'Вы отменили запись на курс «' + item.courseTitle + '»', '🚫');
+          }
+        }
+      };
+
+      // РЕНДЕРИНГ РАСПИСАНИЯ
+      window.renderUserSchedule = function() {
+        var list = getUserEnrollmentsList().filter(function(e) { return e.status !== 'cancelled'; });
+        var grid = document.getElementById('user-schedule-grid');
+        grid.innerHTML = '';
+
+        if (!list.length) {
+          grid.innerHTML = '<div style="grid-column:1/-1;background:#fff;border-radius:16px;padding:40px;text-align:center;border:1px solid var(--border);color:var(--text-muted);">' +
+            '<div style="font-size:36px;margin-bottom:8px">📅</div>' +
+            '<div style="font-weight:700;font-size:16px;color:#102344;margin-bottom:4px">В расписании пока нет предстоящих занятий</div>' +
+            '<p style="font-size:14px;margin-bottom:16px">Запишитесь на курс, чтобы видеть даты в своем личном графике.</p>' +
+            '<a href="courses.html" class="btn-primary" style="display:inline-flex;padding:10px 20px">Выбрать курс →</a>' +
+          '</div>';
+          return;
+        }
+
+        list.forEach(function(item) {
+          var card = document.createElement('div');
+          card.style.cssText = 'background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.8);border-radius:20px;padding:24px;box-shadow:var(--shadow-sm);border-top:4px solid #F96621;';
+          card.innerHTML = [
+            '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">',
+              '<div style="font-size:24px;font-weight:900;color:#102344">' + (item.sessionDate || 'Дата') + '</div>',
+              '<span class="status-badge ' + (item.status === 'confirmed' ? 'badge-confirmed' : 'badge-new') + '">' + (item.status === 'confirmed' ? 'Подтверждено' : 'На согласовании') + '</span>',
+            '</div>',
+            '<h4 style="font-size:16px;font-weight:800;color:#102344;margin-bottom:8px">' + item.courseTitle + '</h4>',
+            '<div style="font-size:13px;color:var(--text-secondary);margin-bottom:6px">🕐 <b>' + (item.sessionTime || '10:00 – 14:00') + '</b></div>',
+            '<div style="font-size:13px;color:var(--text-muted);margin-bottom:20px">📍 ' + (item.sessionLocation || 'г. Минск, Учебный центр ОМА') + '</div>',
+            '<div style="display:flex;gap:10px">',
+              '<button onclick="window.OmaApp && window.OmaApp.ui.openBomModal(' + (item.courseId || 1) + ')" class="btn-bom-kit" style="flex:1;justify-content:center;padding:9px;font-size:12px">🛒 Смета в 1 клик</button>',
+              '<a href="learn.html?id=' + (item.courseId || 1) + '" class="btn-primary" style="padding:9px 14px;font-size:12px">К уроку →</a>',
+            '</div>'
+          ].join('');
+          grid.appendChild(card);
+        });
       };
     });
 
@@ -381,13 +578,13 @@
         '<div class="modal-card" style="text-align:center;max-width:540px;border-radius:24px;padding:36px">' +
           '<button class="modal-close-btn" onclick="document.getElementById(\'cab-cert-overlay\').classList.remove(\'open\')">×</button>' +
           '<div style="width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;font-size:32px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 10px 25px rgba(245,158,11,0.4)">★</div>' +
-          '<div style="font-size:12px;font-weight:800;color:var(--practicum-green);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">ОФИЦИАЛЬНАЯ ВЕРИФИКАЦИЯ ОМА & CERESIT</div>' +
-          '<h2 style="font-size:22px;font-weight:900;margin-bottom:10px">Сертификат квалификации мастера</h2>' +
+          '<div style="font-size:12px;font-weight:800;color:#059669;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">ОФИЦИАЛЬНАЯ ВЕРИФИКАЦИЯ ОМА & CERESIT</div>' +
+          '<h2 style="font-size:22px;font-weight:900;margin-bottom:10px;color:#102344">Сертификат квалификации мастера</h2>' +
           '<p style="color:var(--text-secondary);font-size:14px;margin-bottom:20px">Сотрудник <b>' + empName + '</b> успешно прошел практический курс и аттестован на монтаж керамогранита с Ceresit CM 17.</p>' +
           '<div style="background:#f8fafc;border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:24px;text-align:left;font-size:13px">' +
             '<div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="color:var(--text-muted)">Номер реестра:</span><b>OMA-CERT-2026-8819</b></div>' +
             '<div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="color:var(--text-muted)">Компания:</span><b>ООО «СтройМастер Минск»</b></div>' +
-            '<div style="display:flex;justify-content:space-between"><span style="color:var(--text-muted)">Статус:</span><b style="color:var(--practicum-green)">✓ Подлинность подтверждена</b></div>' +
+            '<div style="display:flex;justify-content:space-between"><span style="color:var(--text-muted)">Статус:</span><b style="color:#059669">✓ Подлинность подтверждена</b></div>' +
           '</div>' +
           '<div style="display:flex;gap:12px">' +
             '<button class="btn-primary" style="flex:1;justify-content:center;padding:12px" onclick="alert(\'Загрузка OMA-CERT-8819.pdf...\');document.getElementById(\'cab-cert-overlay\').classList.remove(\'open\')">Скачать официальный PDF</button>' +
@@ -398,6 +595,5 @@
     }
   </script>
   <script src="oma-react-app.js"></script>
-  </script>
 </body>
 </html>

@@ -26,18 +26,21 @@
           </div>
         </a>
 
-        <!-- Навигация верхнего меню по 3 уровням -->
+        <!-- Навигация верхнего меню -->
         <nav class="header-nav">
-          <a class="header-nav-link" href="courses.html?g=teen" style="color: #334155; font-weight: 600;">Мастер-классы DIY</a>
-          <a class="header-nav-link" href="courses.html?g=student" style="color: #334155; font-weight: 600;">Студенты</a>
-          <a class="header-nav-link" href="cabinet.html?tab=b2b" style="color: #102344; font-weight: 800; background: rgba(16, 35, 68, 0.06); padding: 6px 12px; border-radius: 10px;">🏢 B2B Бригады</a>
-          <a class="header-nav-link" href="#expertise" style="color: #334155; font-weight: 600;">Бренды & Экспертиза ▾</a>
-          <a class="header-nav-link" href="gallery.html" style="color: #334155; font-weight: 600;">Галерея До/После</a>
-          <a class="btn-header-catalog" href="courses.html" style="background: #F96621; color: #fff; font-weight: 800; border-radius: 12px; box-shadow: 0 4px 12px rgba(249, 102, 33, 0.25);">В каталог</a>
+          <a class="header-nav-link" href="courses.html?g=teen">Мастер-классы</a>
+          <a class="header-nav-link" href="courses.html?g=student">Студенты</a>
+          <a class="header-nav-link header-nav-badge" href="cabinet.html?tab=b2b">🏢 B2B Бригады</a>
+          <a class="header-nav-link" href="corporate.html">Корпоративное</a>
+          <a class="header-nav-link" href="#expertise">Экспертиза ▾</a>
+          <a class="header-nav-link" href="gallery.html">Галерея</a>
+          <a class="header-nav-link header-nav-admin" href="admin.html">⚙️ Админка</a>
+          <a class="btn-header-catalog" href="courses.html">В каталог</a>
         </nav>
 
         <!-- Баллы ОМА и Профиль SSO -->
         <div class="header-user-slot">
+          <div id="header-notify-slot"></div>
           <div id="header-points-slot"></div>
           <div id="header-auth-slot"></div>
         </div>
@@ -97,6 +100,7 @@
   <script src="config.js"></script>
   <script src="app.js"></script>
   <script src="auth.js"></script>
+  <script src="notifications.js"></script>
 
   <!-- React 18 Apple Cinema Engine -->
   <script src="oma-react-app.js"></script>

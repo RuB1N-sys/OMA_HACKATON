@@ -26,15 +26,17 @@
         </a>
 
         <nav class="header-nav">
-          <a class="header-nav-link" href="courses.html?g=teen" style="color: #334155; font-weight: 600;">Мастер-классы DIY</a>
-          <a class="header-nav-link" href="courses.html?g=student" style="color: #334155; font-weight: 600;">Студенты</a>
-          <a class="header-nav-link" href="cabinet.html?tab=b2b" style="color: #102344; font-weight: 800; background: rgba(16, 35, 68, 0.06); padding: 6px 12px; border-radius: 10px;">🏢 B2B Бригады</a>
-          <a class="header-nav-link" href="gallery.html" style="color: #102344; font-weight: 800;">Блог & Галерея</a>
-          <a class="header-nav-link" href="courses.html" style="color: #334155; font-weight: 600;">Все курсы ▾</a>
-          <a class="btn-header-catalog" href="courses.html" style="background: #F96621; color: #fff; font-weight: 800; border-radius: 12px; box-shadow: 0 4px 12px rgba(249, 102, 33, 0.25);">В каталог</a>
+          <a class="header-nav-link" href="courses.html?g=teen">Мастер-классы</a>
+          <a class="header-nav-link" href="courses.html?g=student">Студенты</a>
+          <a class="header-nav-link header-nav-badge" href="cabinet.html?tab=b2b">🏢 B2B Бригады</a>
+          <a class="header-nav-link" href="corporate.html">Корпоративное</a>
+          <a class="header-nav-link active" href="gallery.html">Галерея</a>
+          <a class="header-nav-link header-nav-admin" href="admin.html">⚙️ Админка</a>
+          <a class="btn-header-catalog" href="courses.html">В каталог</a>
         </nav>
 
         <div class="header-user-slot">
+          <div id="header-notify-slot"></div>
           <div id="header-points-slot"></div>
           <div id="header-auth-slot"></div>
         </div>
@@ -117,6 +119,7 @@
   <script src="config.js"></script>
   <script src="app.js"></script>
   <script src="auth.js"></script>
+  <script src="notifications.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', async function () {
       var grid = document.getElementById('full-gallery-grid');

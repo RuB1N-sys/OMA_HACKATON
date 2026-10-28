@@ -34,6 +34,7 @@
           <button id="btn-quick-bom" class="btn-primary" style="background: #F96621; color: #fff; padding:8px 18px;font-size:13px;font-weight:800;border-radius:var(--radius-pill);box-shadow: 0 4px 12px rgba(249, 102, 33, 0.25);">
             🛒 Смета материалов (BOM)
           </button>
+          <div id="header-notify-slot"></div>
           <div id="header-points-slot"></div>
           <div id="header-auth-slot"></div>
         </div>
@@ -182,6 +183,7 @@
   <script src="config.js"></script>
   <script src="app.js"></script>
   <script src="auth.js"></script>
+  <script src="notifications.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', async function () {
       var urlParams = new URLSearchParams(location.search);
@@ -250,7 +252,7 @@
 
         lessonStepBadge.textContent = 'ШАГ ' + (index + 1) + ' ИЗ ' + steps.length;
         lessonStepTitle.textContent = step.title;
-        lessonVideoIframe.src = step.videoUrl || 'https://www.youtube.com/embed/dQw4w9WgXcQ';
+        lessonVideoIframe.src = step.videoUrl || 'https://www.youtube.com/embed/5NwtC4qEw38';
         lessonDescription.innerHTML = '<p>' + step.description + '</p>';
 
         if (step.materials && step.materials.length) {

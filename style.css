@@ -91,6 +91,11 @@ button, input, select, textarea {
   padding: 0 24px;
 }
 
+.site-header .container {
+  max-width: 1520px;
+  padding: 0 20px;
+}
+
 /* ==========================================================================
    1. ПРЕМИАЛЬНАЯ STICKY-ШАПКА В СТИЛЕ OMA ACADEMY С GLASSMORPHISM
    ========================================================================== */
@@ -110,14 +115,15 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
-  gap: 24px;
+  height: 68px;
+  gap: 16px;
 }
 
 .header-left {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 /* Логотип Практикум ОМА: красно-оранжевый кружок + снежинка/звезда + Практикум ОМА */
@@ -129,6 +135,7 @@ button, input, select, textarea {
   font-size: 21px;
   letter-spacing: -0.4px;
   color: var(--text-main);
+  flex-shrink: 0;
 }
 
 .logo-badge-circle {
@@ -159,44 +166,252 @@ button, input, select, textarea {
   font-weight: 800;
 }
 
-/* Меню навигации */
+/* Меню навигации — удобное, компактное, не переносится */
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 4px;
   margin-left: auto;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .header-nav-link {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-secondary);
-  display: flex;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
+  padding: 6px 10px;
+  border-radius: 9px;
+  white-space: nowrap;
   cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .header-nav-link:hover {
-  color: var(--text-main);
+  background: rgba(16, 35, 68, 0.05);
+  color: #102344;
+  transform: translateY(-1px);
+}
+
+.header-nav-link.active {
+  background: rgba(249, 102, 33, 0.08);
+  color: #F96621;
+  font-weight: 700;
+}
+
+.header-nav-badge {
+  background: rgba(16, 35, 68, 0.06);
+  color: #102344 !important;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(16, 35, 68, 0.08);
+}
+
+.header-nav-admin {
+  background: rgba(249, 102, 33, 0.08);
+  color: #F96621 !important;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(249, 102, 33, 0.2);
 }
 
 .btn-header-catalog {
-  background: #111827;
-  color: #ffffff;
-  padding: 10px 18px;
-  border-radius: var(--radius-sm);
-  font-size: 14px;
-  font-weight: 600;
+  background: var(--oma-orange) !important;
+  color: #ffffff !important;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
   border: none;
   cursor: pointer;
-  transition: var(--transition);
-  margin-left: 12px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-left: 6px;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(249, 102, 33, 0.25);
 }
 
 .btn-header-catalog:hover {
-  background: #1f2937;
+  background: var(--oma-orange-hover) !important;
   transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(249, 102, 33, 0.35);
+}
+
+/* Глобальная дизайн-система кнопок */
+button, input[type="button"], input[type="submit"], .btn {
+  font-family: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(16, 35, 68, 0.12);
+  background: #ffffff;
+  color: #102344;
+  box-shadow: 0 1px 2px rgba(16, 35, 68, 0.04);
+  white-space: nowrap;
+  text-decoration: none;
+}
+.btn:hover {
+  background: #f8fafc;
+  border-color: rgba(16, 35, 68, 0.24);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(16, 35, 68, 0.08);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Красивые кнопки действий для таблиц */
+.btn-action-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(249, 102, 33, 0.08) !important;
+  color: #F96621 !important;
+  border: 1px solid rgba(249, 102, 33, 0.25) !important;
+  padding: 5px 11px !important;
+  border-radius: 8px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+.btn-action-view:hover {
+  background: rgba(249, 102, 33, 0.16) !important;
+  transform: translateY(-1px);
+}
+
+.btn-action-edit {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #f1f5f9 !important;
+  color: #102344 !important;
+  border: 1px solid rgba(16, 35, 68, 0.12) !important;
+  padding: 5px 11px !important;
+  border-radius: 8px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03) !important;
+  cursor: pointer;
+}
+.btn-action-edit:hover {
+  background: #e2e8f0 !important;
+  border-color: rgba(16, 35, 68, 0.2) !important;
+  transform: translateY(-1px);
+}
+
+.btn-action-archive {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(100, 116, 139, 0.08) !important;
+  color: #475569 !important;
+  border: 1px solid rgba(100, 116, 139, 0.2) !important;
+  padding: 5px 11px !important;
+  border-radius: 8px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+.btn-action-archive:hover {
+  background: rgba(100, 116, 139, 0.15) !important;
+  transform: translateY(-1px);
+}
+
+.btn-action-delete {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(239, 68, 68, 0.08) !important;
+  color: #dc2626 !important;
+  border: 1px solid rgba(239, 68, 68, 0.2) !important;
+  padding: 5px 11px !important;
+  border-radius: 8px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+.btn-action-delete:hover {
+  background: rgba(239, 68, 68, 0.15) !important;
+  transform: translateY(-1px);
+}
+
+.btn-action-success {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(16, 185, 129, 0.1) !important;
+  color: #059669 !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  padding: 5px 12px !important;
+  border-radius: 8px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+}
+.btn-action-success:hover {
+  background: rgba(16, 185, 129, 0.18) !important;
+  transform: translateY(-1px);
+}
+
+/* Сегментированный переключатель цен (Apple Segmented Control) */
+.pricing-segmented-control {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(16, 35, 68, 0.06);
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid rgba(16, 35, 68, 0.08);
+  gap: 4px;
+}
+.pricing-segment-btn {
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  color: #475569;
+  background: transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+.pricing-segment-btn:hover:not(.active) {
+  color: #102344;
+  background: rgba(255, 255, 255, 0.6);
+}
+.pricing-segment-btn.active {
+  background: var(--oma-orange) !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(249, 102, 33, 0.3);
 }
 
 .header-user-slot {
@@ -1052,19 +1267,29 @@ button, input, select, textarea {
 .btn-primary {
   background: var(--oma-orange);
   color: #ffffff;
-  padding: 12px 24px;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-weight: 700;
   font-size: 14px;
   border: none;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  box-shadow: 0 4px 14px rgba(249, 102, 33, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
 }
 
 .btn-primary:hover {
   background: var(--oma-orange-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(249, 102, 33, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
 }
 
 .modal-overlay {

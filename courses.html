@@ -26,15 +26,18 @@
         </a>
 
         <nav class="header-nav">
-          <a class="header-nav-link" href="courses.html?g=teen" style="color: #334155; font-weight: 600;">Мастер-классы DIY</a>
-          <a class="header-nav-link" href="courses.html?g=student" style="color: #334155; font-weight: 600;">Студенты</a>
-          <a class="header-nav-link" href="cabinet.html?tab=b2b" style="color: #102344; font-weight: 800; background: rgba(16, 35, 68, 0.06); padding: 6px 12px; border-radius: 10px;">🏢 B2B Бригады</a>
-          <a class="header-nav-link" href="gallery.html" style="color: #334155; font-weight: 600;">Галерея До/После</a>
-          <a class="header-nav-link" href="courses.html" style="color: #102344; font-weight: 800;">Все курсы ▾</a>
-          <a class="btn-header-catalog" href="courses.html" style="background: #F96621; color: #fff; font-weight: 800; border-radius: 12px; box-shadow: 0 4px 12px rgba(249, 102, 33, 0.25);">В каталог</a>
+          <a class="header-nav-link" href="courses.html?g=teen">Мастер-классы</a>
+          <a class="header-nav-link" href="courses.html?g=student">Студенты</a>
+          <a class="header-nav-link header-nav-badge" href="cabinet.html?tab=b2b">🏢 B2B Бригады</a>
+          <a class="header-nav-link" href="corporate.html">Корпоративное</a>
+          <a class="header-nav-link" href="gallery.html">Галерея</a>
+          <a class="header-nav-link header-nav-admin" href="admin.html">⚙️ Админка</a>
+          <a class="header-nav-link active" href="courses.html">Все курсы</a>
+          <a class="btn-header-catalog" href="courses.html">В каталог</a>
         </nav>
 
         <div class="header-user-slot">
+          <div id="header-notify-slot"></div>
           <div id="header-points-slot"></div>
           <div id="header-auth-slot"></div>
         </div>
@@ -55,23 +58,23 @@
           <p style="color:var(--text-secondary);font-size:16px">Обучение на реальном ассортименте ОМА. Покупайте комплекты материалов в 1 клик.</p>
         </div>
 
-        <!-- Переключатель розница / B2B опт -->
-        <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);padding:4px;display:flex;gap:4px">
-          <button id="filter-pricing-retail" class="btn" style="background:var(--oma-orange);color:#fff;padding:8px 16px;font-size:13px;font-weight:600">Розничные цены (B2C)</button>
-          <button id="filter-pricing-wholesale" class="btn" style="background:transparent;color:var(--text-main);padding:8px 16px;font-size:13px;font-weight:600">Оптовые цены (B2B)</button>
+        <!-- Переключатель розница / B2B опт (Apple Segmented Control) -->
+        <div class="pricing-segmented-control">
+          <button type="button" id="filter-pricing-retail" class="pricing-segment-btn active">Розничные цены (B2C)</button>
+          <button type="button" id="filter-pricing-wholesale" class="pricing-segment-btn">Оптовые цены (B2B)</button>
         </div>
       </div>
 
       <!-- Вкладки 3 направлений аудитории в стиле Практикум -->
-      <div style="display:flex;gap:10px;margin-bottom:32px;overflow-x:auto;padding-bottom:4px">
-        <button class="btn aud-filter-btn active" data-aud="all" style="padding:10px 20px;border-radius:24px;border:1px solid var(--border);background:#111827;color:#fff;font-weight:600;cursor:pointer">Все программы</button>
-        <button class="btn aud-filter-btn" data-aud="teen" style="padding:10px 20px;border-radius:24px;border:1px solid var(--border);background:#fff;color:var(--text-main);font-weight:600;cursor:pointer">🛠️ Мастер-классы DIY (B2C)</button>
-        <button class="btn aud-filter-btn" data-aud="student" style="padding:10px 20px;border-radius:24px;border:1px solid var(--border);background:#fff;color:var(--text-main);font-weight:600;cursor:pointer">📐 Студенты (Профессия)</button>
-        <button class="btn aud-filter-btn" data-aud="pro" style="padding:10px 20px;border-radius:24px;border:1px solid var(--border);background:#fff;color:var(--text-main);font-weight:600;cursor:pointer">🏢 B2B Квалификация и бренды</button>
+      <div style="display:flex;gap:8px;margin-bottom:32px;overflow-x:auto;padding-bottom:4px;white-space:nowrap">
+        <button class="btn aud-filter-btn active" data-aud="all" style="padding:8px 18px;border-radius:20px;background:#102344;color:#fff;font-weight:700;border:1px solid #102344;cursor:pointer">Все программы</button>
+        <button class="btn aud-filter-btn" data-aud="teen" style="padding:8px 18px;border-radius:20px;border:1px solid rgba(16,35,68,0.12);background:rgba(255,255,255,0.9);backdrop-filter:blur(8px);color:var(--text-main);font-weight:600;cursor:pointer">🛠️ Мастер-классы</button>
+        <button class="btn aud-filter-btn" data-aud="student" style="padding:8px 18px;border-radius:20px;border:1px solid rgba(16,35,68,0.12);background:rgba(255,255,255,0.9);backdrop-filter:blur(8px);color:var(--text-main);font-weight:600;cursor:pointer">📐 Студенты</button>
+        <button class="btn aud-filter-btn" data-aud="pro" style="padding:8px 18px;border-radius:20px;border:1px solid rgba(16,35,68,0.12);background:rgba(255,255,255,0.9);backdrop-filter:blur(8px);color:var(--text-main);font-weight:600;cursor:pointer">🏢 B2B Квалификация</button>
       </div>
 
       <!-- Панель поиска и сложности -->
-      <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:18px 24px;margin-bottom:36px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+      <div style="background:rgba(255,255,255,0.9);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.8);border-radius:var(--radius-md);padding:18px 24px;margin-bottom:36px;display:flex;gap:20px;align-items:center;flex-wrap:wrap;box-shadow:var(--shadow-sm)">
         <div style="flex:1;min-width:260px;position:relative">
           <input type="text" id="course-search-input" placeholder="Поиск по курсам, материалам (Ceresit, сосна, электрика)..." style="width:100%;padding:10px 16px;border:1px solid var(--border);border-radius:8px;font-size:14px">
         </div>
@@ -106,6 +109,7 @@
   <script src="config.js"></script>
   <script src="app.js"></script>
   <script src="auth.js"></script>
+  <script src="notifications.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', async function () {
       var urlParams = new URLSearchParams(location.search);
@@ -127,11 +131,13 @@
 
       audButtons.forEach(function (btn) {
         if (btn.dataset.aud === currentAud) {
-          btn.style.background = '#111827';
+          btn.style.background = '#102344';
           btn.style.color = '#fff';
+          btn.style.borderColor = '#102344';
         } else {
-          btn.style.background = '#fff';
+          btn.style.background = 'rgba(255,255,255,0.9)';
           btn.style.color = 'var(--text-main)';
+          btn.style.borderColor = 'rgba(16,35,68,0.12)';
         }
       });
 
@@ -184,7 +190,8 @@
                   '<div class="price-val">' + displayPrice + ' BYN</div>' +
                   '<div class="price-sub">' + priceLabel + '</div>' +
                 '</div>' +
-                '<div class="card-actions">' +
+                '<div class="card-actions" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">' +
+                  '<a href="course-detail.html?id=' + p.id + '" class="btn" style="background:#102344;color:#fff;font-size:12px;font-weight:700;padding:8px 12px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:4px">📅 Запись →</a>' +
                   '<button class="btn-bom-kit" onclick="window.OmaApp.ui.openBomModal(' + p.id + ', ' + isWholesale + ')">🛒 Смета в 1 клик</button>' +
                   '<button class="btn-learn" onclick="location.href=\'learn.html?id=' + p.id + '\'">Тренажер →</button>' +
                 '</div>' +
@@ -199,11 +206,13 @@
           currentAud = btn.dataset.aud;
           history.replaceState(null, '', 'courses.html?g=' + currentAud);
           audButtons.forEach(function (b) {
-            b.style.background = '#fff';
+            b.style.background = 'rgba(255,255,255,0.9)';
             b.style.color = 'var(--text-main)';
+            b.style.borderColor = 'rgba(16,35,68,0.12)';
           });
-          btn.style.background = '#111827';
+          btn.style.background = '#102344';
           btn.style.color = '#fff';
+          btn.style.borderColor = '#102344';
           render();
         };
       });
@@ -220,19 +229,15 @@
 
       btnRetail.onclick = function () {
         isWholesale = false;
-        btnRetail.style.background = 'var(--oma-orange)';
-        btnRetail.style.color = '#fff';
-        btnWholesale.style.background = 'transparent';
-        btnWholesale.style.color = 'var(--text-main)';
+        btnRetail.classList.add('active');
+        btnWholesale.classList.remove('active');
         render();
       };
 
       btnWholesale.onclick = function () {
         isWholesale = true;
-        btnWholesale.style.background = 'var(--oma-orange)';
-        btnWholesale.style.color = '#fff';
-        btnRetail.style.background = 'transparent';
-        btnRetail.style.color = 'var(--text-main)';
+        btnWholesale.classList.add('active');
+        btnRetail.classList.remove('active');
         render();
       };
 

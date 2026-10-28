@@ -45,7 +45,7 @@
             stepNumber: 1,
             title: 'Подготовка и шлифовка древесины сосны',
             description: 'Шлифуем деревянные щиты наждачной бумагой P120 вдоль волокон для удаления ворса и выравнивания кромок. Затем финишируем бумагой P240 для идеальной шелковистости перед нанесением масла.',
-            videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+            videoUrl: 'https://www.youtube.com/embed/5NwtC4qEw38',
             sortOrder: 1,
             materials: [
               { id: 1, name: 'Мебельный щит сосна 800x200x18мм', sku: 'OMA-108234', quantity: 2, unit: 'шт', priceRetail: 18.50, priceWholesale: 14.80, omaProductUrl: 'https://oma.by/product/108234' },
@@ -60,7 +60,7 @@
             stepNumber: 2,
             title: 'Тонирование и защита декоративным маслом V33',
             description: 'Тщательно перемешайте масло. Наносите плоской кистью вдоль волокон равномерным слоем. Через 15 минут удалите излишки безворсовой салфеткой. Нанесите второй защитный слой.',
-            videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+            videoUrl: 'https://www.youtube.com/embed/PzbG3W7_5wY',
             sortOrder: 2,
             materials: [
               { id: 3, name: 'Масло для дерева V33 Белый Дуб 0.5л', sku: 'OMA-449102', quantity: 1, unit: 'шт', priceRetail: 25.00, priceWholesale: 20.00, omaProductUrl: 'https://oma.by/product/449102' }
@@ -74,7 +74,7 @@
             stepNumber: 3,
             title: 'Сборка каркаса и скрытый монтаж на стену',
             description: 'Разметьте отверстия на нижней части полок с помощью угольника. Зафиксируйте металлические кронштейны саморезами 4x16. Закрепите готовую полку на стене дюбелями Fischer.',
-            videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+            videoUrl: 'https://www.youtube.com/embed/tB5W4lI4wWk',
             sortOrder: 3,
             materials: [
               { id: 4, name: 'Кронштейн лофт металлический черный 200мм', sku: 'OMA-778192', quantity: 2, unit: 'шт', priceRetail: 12.00, priceWholesale: 9.60, omaProductUrl: 'https://oma.by/product/778192' },
@@ -146,7 +146,7 @@
             stepNumber: 1,
             title: 'Подготовка основания и обеспыливание Ceresit CT 17',
             description: 'Контроль прочности и влажности стяжки прибором CM. Нанесение грунтовки глубокого проникновения в два прохода кистью-макловицей.',
-            videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+            videoUrl: 'https://www.youtube.com/embed/G1l2W5Qj3vQ',
             sortOrder: 1,
             materials: [
               { id: 6, name: 'Грунтовка Ceresit CT 17 10л', sku: 'OMA-CER-01', quantity: 2, unit: 'шт', priceRetail: 32.00, priceWholesale: 24.00, omaProductUrl: 'https://oma.by/product/cer-01' }
@@ -158,7 +158,7 @@
             stepNumber: 2,
             title: 'Приготовление и нанесение эластичного клея Ceresit CM 17',
             description: 'Двухсторонний метод нанесения клеевой смеси для плит размером 120х60 и 120х120см гребенчатым шпателем 10мм.',
-            videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+            videoUrl: 'https://www.youtube.com/embed/N6jU18Y_EGE',
             sortOrder: 2,
             materials: [
               { id: 7, name: 'Клей высокоэластичный Ceresit CM 17 25кг', sku: 'OMA-CER-02', quantity: 6, unit: 'меш', priceRetail: 45.00, priceWholesale: 33.50, omaProductUrl: 'https://oma.by/product/cer-02' }
@@ -170,7 +170,7 @@
             stepNumber: 3,
             title: 'Монтаж СВП и виброукладка плиты',
             description: 'Установка зажимов СВП с зазором 1.5мм, притягивание клиньями специальными клещами и удаление пустот аккумуляторной присоской.',
-            videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+            videoUrl: 'https://www.youtube.com/embed/3z5e5c7s9dI',
             sortOrder: 3,
             materials: [
               { id: 8, name: 'Система выравнивания плитки DLS зажим 1.5мм (500 шт)', sku: 'OMA-SVP-01', quantity: 1, unit: 'уп', priceRetail: 38.00, priceWholesale: 29.00, omaProductUrl: 'https://oma.by/product/svp-01' }
